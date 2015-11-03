@@ -6,13 +6,13 @@ L'API REST se met dans un projet "Dynamic Web Project" dans Eclipse, configuré 
 
 Pour lier un projet Eclipse avec le dépôt GIT :
 
-1 - Cloner le dépôt dans le workspace d'Eclipse
+1 - Cloner le dépôt dans le workspace d'Eclipse au nom "ZenLounge"
 
 2 - Renommer temporairement le dossier créé
 
-3 - Créer un "Dynamic Web Project" du même nom que le dépôt
+3 - Créer un "Dynamic Web Project" au nom "ZenLounge"
 
-4 - Copier le contenu du dossier renommé dans le projet Eclipse
+4 - Copier le contenu du dossier renommé dans "ZenLounge"
 
 
 Etapes complémentaires pour lancer le serveur :

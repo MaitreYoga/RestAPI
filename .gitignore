@@ -10,3 +10,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.classpath
+.project
+.settings/.jsdtscope
+.settings/org.eclipse.jdt.core.prefs
+.settings/org.eclipse.wst.common.component
+.settings/org.eclipse.wst.common.project.facet.core.xml
+.settings/org.eclipse.wst.jsdt.ui.superType.container
+.settings/org.eclipse.wst.jsdt.ui.superType.name
+WebContent/META-INF/MANIFEST.MF
+WebContent/WEB-INF/glassfish-web.xml
+WebContent/WEB-INF/web.xml

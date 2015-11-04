@@ -81,7 +81,7 @@ public class UserManager {
 		return user.loadId(login);
 	}
 
-	public List<Object> getUsers() 
+	public List<User> getUsers() 
 	{
 		user = factory.makeUser();
 		return user.load();

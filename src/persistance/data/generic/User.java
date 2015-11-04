@@ -138,7 +138,7 @@ public abstract class User {
 		this.pwd = pwd;
 	}
 
-	public abstract List<Object> load();
+	public abstract List<User> load();
 
 	public abstract int saveCurrentUser();
 

@@ -34,6 +34,14 @@ public class UserFacade {
 	private ProductManager productManager;
 	
 	private NotificationManager notificationManager;
+	
+	private static UserFacade instance;
+	
+	public static UserFacade instance() {
+		if(instance == null)
+			instance = new UserFacade();
+		return instance;
+	}
     
     public UserFacade(){
     	userManager = new UserManager();
@@ -106,7 +114,7 @@ public class UserFacade {
 		return managerManagementManager.updateManagerList();
 	}
 
-	public List<Object> getUsers() 
+	public List<User> getUsers() 
 	{
 		return userManager.getUsers();
 	}

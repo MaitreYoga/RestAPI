@@ -114,7 +114,7 @@ public class ManagerManagementView extends View implements ActionListener, ItemL
 	}
 	public void init(){
 		//fill combo box with users
-		List<Object> userList = userFacade.getUsers();
+		/*List<User> userList = userFacade.getUsers();
 		int i = 0;
 		while(i<userList.size())
 		{
@@ -132,7 +132,7 @@ public class ManagerManagementView extends View implements ActionListener, ItemL
 		}
 		
 		//display manager list
-		txtManagers.setText(userFacade.updateManagerList());
+		txtManagers.setText(userFacade.updateManagerList());*/
 	}
 
 	private void positionDivider() 

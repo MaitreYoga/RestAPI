@@ -1,6 +1,8 @@
 package services;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import bl.facade.UserFacade;
 import persistance.MySQLDatabase;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * Servlet implementation class HelloWorld
@@ -30,17 +35,23 @@ public class HelloWorld extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		
+		
 		if(!MySQLDatabase.getInstance().open())
 		{
-			response.getWriter().append("Cannot instantiate MySQL Connexion");
+			out.print("Cannot instantiate MySQL Connexion");
 		}
 		else
 		{
-			response.getWriter().append("Liste des utilisateurs : \n");
-			for(Object o : new UserFacade().getUsers())
-				response.getWriter().append((String)o+"\n");
+			Gson gson = new Gson();
+			String json = gson.toJson(UserFacade.instance().getUsers());
+			System.out.println(json);
+			out.print(json);
 		}
-		
+
+		out.flush();
 	}
 
 	/**

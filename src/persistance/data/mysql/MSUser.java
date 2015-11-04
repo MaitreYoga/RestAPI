@@ -10,7 +10,7 @@ import persistance.data.generic.User;
 
 public class MSUser extends User
 {
-	List<Object> userList = new ArrayList<Object>();
+	List<User> userList = new ArrayList<User>();
 
     public MSUser()
     {
@@ -206,15 +206,19 @@ public class MSUser extends User
 	}
 
 	@Override
-	public List<Object> load() 
+	public List<User> load() 
 	{
 		 String request = "SELECT * FROM "+table+"";
 	        ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
 	        try 
 	        {
+	        	MSUser user;
 				while(result.next())
 				{
-				   userList.add(result.getString(firstname));    
+					user = new MSUser();
+					user.setFirstName(result.getString("firstname"));
+					user.setLastName(result.getString("lastname"));
+					userList.add(user);
 				}
 			} 
 	        catch (SQLException e) 

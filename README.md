@@ -18,8 +18,8 @@ Pour lier un projet Eclipse avec le dépôt GIT :
 Etapes complémentaires pour lancer le serveur :
 
 
-1 - Placer les fichiers "commons-codec-1.10.jar" et "mysql-connector-java-5.1.34-bin.jar" disponibles sur le Drive dans WEB-INF/lib/
+1 - Placer les fichiers disponibles sur le dossier "lib" du Drive dans WEB-INF/lib/
 
-2 - Dans les propriétés du projet, les deux librairies précédentes doivent être ajoutées (Libraries -> Add Jar)
+2 - Dans les propriétés du projet, les librairies précédentes doivent être ajoutées (Libraries -> Add Jar)
 
 3 - Dans les propriétés du serveur glassfish, cocher "Use Jar archives for deployment"

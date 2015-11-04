@@ -12,7 +12,7 @@ import javax.swing.SpringLayout;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import persistance.Session;
+import dal.Session;
 import ui.view.AccessoriesManagementView;
 import ui.view.ActivityCategoryView;
 import ui.view.ActivityManagerAdminView;

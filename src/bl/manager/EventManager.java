@@ -8,16 +8,16 @@ import javax.swing.JTextArea;
 
 import org.omg.CORBA.OMGVMCID;
 
-import persistance.factory.Factory;
-import persistance.data.generic.Activity;
-import persistance.data.generic.Event;
-import persistance.data.generic.EventList;
-import persistance.data.generic.Inscription;
-import persistance.data.generic.Member;
-import persistance.data.generic.Period;
-import persistance.data.generic.Room;
-import persistance.data.generic.RoomList;
-import persistance.data.generic.Speaker;
+import dal.factory.Factory;
+import dal.product.generic.Activity;
+import dal.product.generic.Event;
+import dal.product.generic.EventList;
+import dal.product.generic.Inscription;
+import dal.product.generic.Member;
+import dal.product.generic.Period;
+import dal.product.generic.Room;
+import dal.product.generic.RoomList;
+import dal.product.generic.Speaker;
 
 public class EventManager 
 {

@@ -17,10 +17,10 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.border.BevelBorder;
 
-import persistance.data.generic.Order;
-import persistance.data.generic.OrderList;
 import bl.facade.ShopFacade;
 import bl.facade.UserFacade;
+import dal.product.generic.Order;
+import dal.product.generic.OrderList;
 import ui.common.Frame;
 import ui.common.VerticalLayout;
 import ui.common.View;

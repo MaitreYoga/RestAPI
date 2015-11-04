@@ -6,14 +6,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
-
-import persistance.data.generic.ActivityList;
-import persistance.data.generic.RoomList;
-import persistance.data.generic.SpeakerList;
-
 import javax.swing.JButton;
 
 import bl.facade.EventFacade;
+import dal.product.generic.ActivityList;
+import dal.product.generic.RoomList;
+import dal.product.generic.SpeakerList;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

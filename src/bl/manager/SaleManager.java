@@ -1,9 +1,9 @@
 package bl.manager;
 
-import persistance.Session;
-import persistance.data.generic.Product;
-import persistance.data.generic.User;
-import persistance.factory.Factory;
+import dal.Session;
+import dal.factory.Factory;
+import dal.product.generic.Product;
+import dal.product.generic.User;
 
 public class SaleManager {
 	private Factory factory;

@@ -7,12 +7,11 @@ import java.util.Date;
 import ui.common.Frame;
 import ui.common.View;
 import bl.facade.EventFacade;
+import dal.product.generic.Event;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-
-import persistance.data.generic.Event;
 
 @SuppressWarnings("serial")
 public class EventDetailsView extends View implements ActionListener

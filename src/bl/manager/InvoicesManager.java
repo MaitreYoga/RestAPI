@@ -1,8 +1,8 @@
 package bl.manager;
 
-import persistance.data.generic.Invoice;
-import persistance.data.generic.InvoiceList;
-import persistance.factory.Factory;
+import dal.factory.Factory;
+import dal.product.generic.Invoice;
+import dal.product.generic.InvoiceList;
 
 public class InvoicesManager {
 

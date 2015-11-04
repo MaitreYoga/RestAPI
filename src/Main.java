@@ -1,4 +1,4 @@
-import persistance.MySQLDatabase;
+import dal.MySQLDatabase;
 import ui.common.Frame;
 import ui.view.LoginView;
 

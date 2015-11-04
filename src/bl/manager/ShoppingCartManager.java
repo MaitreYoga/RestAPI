@@ -1,9 +1,9 @@
 package bl.manager;
 
-import persistance.factory.Factory;
-import persistance.data.generic.ProductLineList;
-import persistance.data.generic.ShoppingCart;
-import persistance.data.generic.ShoppingCartLine;
+import dal.factory.Factory;
+import dal.product.generic.ProductLineList;
+import dal.product.generic.ShoppingCart;
+import dal.product.generic.ShoppingCartLine;
 
 public class ShoppingCartManager {
 	private ProductLineList prods;

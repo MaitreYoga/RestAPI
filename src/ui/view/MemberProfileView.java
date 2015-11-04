@@ -3,6 +3,7 @@ package ui.view;
 import ui.common.Frame;
 import ui.common.View;
 import bl.facade.UserFacade;
+import dal.product.generic.SubscriptionPayment;
 
 import javax.swing.SpringLayout;
 import javax.swing.JButton;
@@ -17,8 +18,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
-
-import persistance.data.generic.SubscriptionPayment;
 
 import java.awt.SystemColor;
 

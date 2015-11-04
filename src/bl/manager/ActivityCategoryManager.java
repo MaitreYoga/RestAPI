@@ -2,9 +2,9 @@ package bl.manager;
 
 import javax.swing.JTextArea;
 
-import persistance.data.generic.ActivityCategory;
-import persistance.data.generic.ActivityCategoryList;
-import persistance.factory.Factory;
+import dal.factory.Factory;
+import dal.product.generic.ActivityCategory;
+import dal.product.generic.ActivityCategoryList;
 
 public class ActivityCategoryManager 
 {

@@ -15,9 +15,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBox;
 
-import persistance.data.generic.Notification;
-import persistance.data.generic.NotificationList;
 import bl.facade.UserFacade;
+import dal.product.generic.Notification;
+import dal.product.generic.NotificationList;
 
 import javax.swing.JTextArea;
 

@@ -4,7 +4,10 @@ import ui.common.Frame;
 import ui.common.VerticalLayout;
 import ui.common.View;
 import bl.facade.ShopFacade;
-
+import dal.product.generic.Invoice;
+import dal.product.generic.OrderLine;
+import dal.product.generic.OrderLineList;
+import dal.product.generic.Product;
 
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
@@ -25,11 +28,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-
-import persistance.data.generic.Invoice;
-import persistance.data.generic.OrderLine;
-import persistance.data.generic.OrderLineList;
-import persistance.data.generic.Product;
 
 
 @SuppressWarnings("serial")

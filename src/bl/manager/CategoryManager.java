@@ -2,9 +2,9 @@ package bl.manager;
 
 import java.util.List;
 
-import persistance.factory.Factory;
-import persistance.data.generic.Product;
-import persistance.data.generic.ProductCategory;
+import dal.factory.Factory;
+import dal.product.generic.Product;
+import dal.product.generic.ProductCategory;
 
 public class CategoryManager 
 {

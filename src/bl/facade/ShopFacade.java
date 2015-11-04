@@ -9,14 +9,14 @@ import bl.manager.ProductManager;
 import bl.manager.SaleManager;
 import bl.manager.ShoppingCartManager;
 import bl.manager.UserManager;
-import persistance.Session;
-import persistance.data.generic.InvoiceList;
-import persistance.data.generic.Order;
-import persistance.data.generic.OrderLineList;
-import persistance.data.generic.OrderList;
-import persistance.data.generic.Product;
-import persistance.data.generic.ProductCategory;
-import persistance.data.generic.ProductLineList;
+import dal.Session;
+import dal.product.generic.InvoiceList;
+import dal.product.generic.Order;
+import dal.product.generic.OrderLineList;
+import dal.product.generic.OrderList;
+import dal.product.generic.Product;
+import dal.product.generic.ProductCategory;
+import dal.product.generic.ProductLineList;
 
 public class ShopFacade {
     private CategoryManager categoryManager;

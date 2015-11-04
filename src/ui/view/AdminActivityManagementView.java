@@ -1,6 +1,11 @@
 package ui.view;
 
 import bl.facade.EventFacade;
+import dal.factory.Factory;
+import dal.product.generic.Activity;
+import dal.product.generic.ActivityCategory;
+import dal.product.generic.ActivityCategoryList;
+import dal.product.generic.ActivityList;
 import ui.common.VerticalLayout;
 import ui.common.View;
 
@@ -18,13 +23,6 @@ import java.util.List;
 
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
-import persistance.data.generic.Activity;
-import persistance.data.generic.ActivityCategory;
-import persistance.data.generic.ActivityCategoryList;
-import persistance.data.generic.ActivityList;
-import persistance.factory.Factory;
-
 import javax.swing.JComboBox;
 
 @SuppressWarnings("serial")

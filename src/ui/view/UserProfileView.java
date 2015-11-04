@@ -15,8 +15,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import persistance.Session;
 import bl.facade.UserFacade;
+import dal.Session;
+
 import javax.swing.SwingConstants;
 
 public class UserProfileView extends View{

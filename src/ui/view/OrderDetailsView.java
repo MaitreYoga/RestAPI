@@ -5,6 +5,11 @@ import ui.common.VerticalLayout;
 import ui.common.View;
 import bl.facade.ShopFacade;
 import bl.facade.UserFacade;
+import dal.product.generic.OrderLine;
+import dal.product.generic.OrderLineList;
+import dal.product.generic.Product;
+import dal.product.generic.ProductLine;
+import dal.product.generic.ProductLineList;
 
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
@@ -27,12 +32,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-
-import persistance.data.generic.OrderLine;
-import persistance.data.generic.OrderLineList;
-import persistance.data.generic.Product;
-import persistance.data.generic.ProductLine;
-import persistance.data.generic.ProductLineList;
 
 
 @SuppressWarnings("serial")

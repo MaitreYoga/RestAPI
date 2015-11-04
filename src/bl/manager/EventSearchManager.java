@@ -1,7 +1,7 @@
 package bl.manager;
 
-import persistance.factory.Factory;
-import persistance.data.generic.Event;
+import dal.factory.Factory;
+import dal.product.generic.Event;
 
 public class EventSearchManager {
 	private Factory factory;

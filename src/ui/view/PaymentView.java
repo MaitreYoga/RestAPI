@@ -17,10 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import persistance.data.generic.Order;
 import bl.facade.EventFacade;
 import bl.facade.ShopFacade;
 import bl.facade.UserFacade;
+import dal.product.generic.Order;
 
 @SuppressWarnings("serial")
 public class PaymentView extends View implements ActionListener

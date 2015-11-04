@@ -10,6 +10,8 @@ import java.util.List;
 import ui.common.Frame;
 import ui.common.View;
 import bl.facade.ShopFacade;
+import dal.product.generic.ProductCategory;
+import dal.product.mysql.MSProductCategory;
 
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
@@ -21,10 +23,6 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
-
-import persistance.data.generic.ProductCategory;
-import persistance.data.mysql.MSProductCategory;
-
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;

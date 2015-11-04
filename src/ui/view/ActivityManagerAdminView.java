@@ -7,6 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.SpringLayout;
 
 import bl.facade.EventFacade;
+import dal.factory.Factory;
+import dal.product.generic.Activity;
+import dal.product.generic.ActivityList;
+import dal.product.generic.Manager;
+import dal.product.generic.ManagerList;
 
 import javax.swing.JScrollPane;
 import javax.swing.JPanel;
@@ -20,12 +25,6 @@ import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
-
-import persistance.data.generic.Activity;
-import persistance.data.generic.ActivityList;
-import persistance.data.generic.Manager;
-import persistance.data.generic.ManagerList;
-import persistance.factory.Factory;
 
 @SuppressWarnings("serial")
 public class ActivityManagerAdminView extends View implements ActionListener {

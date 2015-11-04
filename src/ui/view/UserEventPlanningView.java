@@ -8,14 +8,12 @@ import java.awt.event.MouseListener;
 import ui.common.Frame;
 import ui.common.View;
 import bl.facade.EventFacade;
+import dal.product.generic.EventList;
 
 import javax.swing.SpringLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-
-import persistance.data.generic.EventList;
-
 import javax.swing.JButton;
 
 @SuppressWarnings("serial")

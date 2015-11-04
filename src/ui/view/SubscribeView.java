@@ -2,8 +2,8 @@ package ui.view;
 
 import ui.common.Frame;
 import ui.common.View;
+import utilitaries.Encryption;
 import bl.facade.UserFacade;
-import bl.other.Utilitary;
 
 import javax.swing.JLabel;
 import javax.swing.SpringLayout;
@@ -270,7 +270,7 @@ public class SubscribeView extends View implements ActionListener {
     	
     	if(!error){
     		String subscribeError = userFacade.handleSubscribe(	loginField.getText(),
-    															Utilitary.hash(pwd1Field.getPassword()),
+    															Encryption.hash(pwd1Field.getPassword()),
     															firstNameField.getText(),
     															lastNameField.getText(),
     															phoneField.getText(),
@@ -286,7 +286,7 @@ public class SubscribeView extends View implements ActionListener {
     			userFacade.createShoppingCart(userId); // on crée un panier pour le compte
     			if (confirm("Registration completed ! Would you like to automatically log in ?")) {
     			
-	    			if(userFacade.handleLogin(loginField.getText(),Utilitary.hash(pwd1Field.getPassword())) != null) {
+	    			if(userFacade.handleLogin(loginField.getText(),Encryption.hash(pwd1Field.getPassword())) != null) {
 	    				alert("Unknown error - Please log in manually");
 	            		Frame.getFrame().setView(new LoginView(),false);
 	            		Frame.getFrame().revalidate();

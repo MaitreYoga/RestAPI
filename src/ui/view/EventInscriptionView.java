@@ -9,12 +9,11 @@ import javax.swing.JButton;
 import ui.common.Frame;
 import ui.common.View;
 import bl.facade.EventFacade;
+import dal.product.generic.Event;
 
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-
-import persistance.data.generic.Event;
 
 public class EventInscriptionView extends View implements ActionListener
 {

@@ -10,7 +10,7 @@ Pour lier un projet Eclipse avec le dépôt GIT :
 
 2 - Renommer temporairement le dossier créé
 
-3 - Créer un "Dynamic Web Project" au nom "ZenLounge"
+3 - Créer un "Dynamic Web Project" au nom "ZenLounge" (Penser à cocher "Generate web.xml deployment descriptor"))
 
 4 - Copier le contenu du dossier renommé dans "ZenLounge"
 
@@ -21,3 +21,5 @@ Etapes complémentaires pour lancer le serveur :
 1 - Placer les fichiers "commons-codec-1.10.jar" et "mysql-connector-java-5.1.34-bin.jar" disponibles sur le Drive dans WEB-INF/lib/
 
 2 - Dans les propriétés du projet, les deux librairies précédentes doivent être ajoutées (Libraries -> Add Jar)
+
+3 - Dans les propriétés du serveur glassfish, cocher "Use Jar archives for deployment"

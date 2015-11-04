@@ -6,8 +6,6 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import com.mysql.fabric.xmlrpc.base.Member;
-
 import persistance.Session;
 import persistance.data.generic.Notification;
 import persistance.data.generic.NotificationList;

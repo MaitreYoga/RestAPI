@@ -6,16 +6,6 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import persistance.Session;
-import persistance.data.generic.Notification;
-import persistance.data.generic.NotificationList;
-import persistance.data.generic.Product;
-import persistance.data.generic.ProductLineList;
-import persistance.data.generic.ProductList;
-import persistance.data.generic.Speaker;
-import persistance.data.generic.SubscriptionPayment;
-import persistance.data.generic.SubscriptionPaymentList;
-import persistance.data.generic.User;
 import bl.manager.AdministratorManager;
 import bl.manager.ManagerManager;
 import bl.manager.NotificationManager;
@@ -23,6 +13,16 @@ import bl.manager.ProductManager;
 import bl.manager.ShoppingCartManager;
 import bl.manager.SpeakerManager;
 import bl.manager.UserManager;
+import dal.Session;
+import dal.product.generic.Notification;
+import dal.product.generic.NotificationList;
+import dal.product.generic.Product;
+import dal.product.generic.ProductLineList;
+import dal.product.generic.ProductList;
+import dal.product.generic.Speaker;
+import dal.product.generic.SubscriptionPayment;
+import dal.product.generic.SubscriptionPaymentList;
+import dal.product.generic.User;
 
 public class UserFacade {
 

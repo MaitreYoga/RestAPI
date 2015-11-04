@@ -20,10 +20,10 @@ import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import persistance.data.generic.Accessory;
-import persistance.data.generic.AccessoryList;
-import persistance.data.generic.Room;
 import bl.facade.EventFacade;
+import dal.product.generic.Accessory;
+import dal.product.generic.AccessoryList;
+import dal.product.generic.Room;
 
 import javax.swing.JButton;
 

@@ -1,14 +1,13 @@
 package ui.view;
 
 import bl.facade.UserFacade;
+import dal.product.generic.Speaker;
 import ui.common.Frame;
 import ui.common.View;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-
-import persistance.data.generic.Speaker;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

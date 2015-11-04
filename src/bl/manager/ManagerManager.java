@@ -2,9 +2,9 @@ package bl.manager;
 
 import javax.swing.JTextArea;
 
-import persistance.data.generic.Manager;
-import persistance.data.generic.ManagerList;
-import persistance.factory.Factory;
+import dal.factory.Factory;
+import dal.product.generic.Manager;
+import dal.product.generic.ManagerList;
 
 public class ManagerManager 
 {

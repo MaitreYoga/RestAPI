@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import persistance.Session;
-import persistance.data.generic.Member;
-import persistance.data.generic.Order;
-import persistance.data.generic.OrderLine;
-import persistance.data.generic.OrderLineList;
-import persistance.data.generic.OrderList;
-import persistance.data.generic.Product;
-import persistance.data.generic.ProductLine;
-import persistance.data.generic.ProductLineList;
-import persistance.factory.Factory;
+import dal.Session;
+import dal.factory.Factory;
+import dal.product.generic.Member;
+import dal.product.generic.Order;
+import dal.product.generic.OrderLine;
+import dal.product.generic.OrderLineList;
+import dal.product.generic.OrderList;
+import dal.product.generic.Product;
+import dal.product.generic.ProductLine;
+import dal.product.generic.ProductLineList;
 
 public class OrdersManager {
 

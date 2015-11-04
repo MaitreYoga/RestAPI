@@ -3,10 +3,10 @@ package bl.manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import persistance.data.generic.Accessory;
-import persistance.data.generic.Activity;
-import persistance.data.generic.ActivityList;
-import persistance.factory.Factory;
+import dal.factory.Factory;
+import dal.product.generic.Accessory;
+import dal.product.generic.Activity;
+import dal.product.generic.ActivityList;
 
 public class ActivityManager {
 

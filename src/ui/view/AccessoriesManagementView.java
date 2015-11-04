@@ -1,6 +1,8 @@
 package ui.view;
 
 import bl.facade.EventFacade;
+import dal.product.generic.Accessory;
+import dal.product.generic.AccessoryList;
 import ui.common.VerticalLayout;
 import ui.common.View;
 
@@ -16,9 +18,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
-import persistance.data.generic.Accessory;
-import persistance.data.generic.AccessoryList;
 
 @SuppressWarnings("serial")
 public class AccessoriesManagementView extends View implements ActionListener{

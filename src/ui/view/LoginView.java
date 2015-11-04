@@ -14,9 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import bl.facade.UserFacade;
-import bl.other.Utilitary;
 import ui.common.Frame;
 import ui.common.View;
+import utilitaries.Encryption;
 
 @SuppressWarnings("serial")
 public class LoginView extends View implements ActionListener, KeyListener{
@@ -88,7 +88,7 @@ public class LoginView extends View implements ActionListener, KeyListener{
     }
 
     private void login() {
-    	String pwd = Utilitary.hash(pwdField.getPassword());
+    	String pwd = Encryption.hash(pwdField.getPassword());
     	pwdField.setText("");
     	String error = userFacade.handleLogin(loginField.getText(),pwd);
     	if(error == null) {

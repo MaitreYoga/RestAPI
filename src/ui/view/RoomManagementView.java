@@ -19,11 +19,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import bl.facade.EventFacade;
+import dal.product.generic.Room;
 import ui.common.View;
 
 import javax.swing.JSpinner;
-
-import persistance.data.generic.Room;
 
 @SuppressWarnings("serial")
 public class RoomManagementView extends View implements ActionListener

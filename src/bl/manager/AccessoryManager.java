@@ -2,9 +2,9 @@ package bl.manager;
 
 import java.util.ArrayList;
 
-import persistance.data.generic.Accessory;
-import persistance.data.generic.AccessoryList;
-import persistance.factory.Factory;
+import dal.factory.Factory;
+import dal.product.generic.Accessory;
+import dal.product.generic.AccessoryList;
 
 public class AccessoryManager {
 	

@@ -9,16 +9,16 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import persistance.data.generic.ActivityCategory;
-import persistance.data.generic.Manager;
-import persistance.data.generic.Member;
-import persistance.data.generic.ProductList;
-import persistance.data.generic.Speaker;
-import persistance.data.generic.SubscriptionPayment;
-import persistance.data.generic.SubscriptionPaymentList;
-import persistance.data.generic.User;
-import persistance.factory.Factory;
-import persistance.Session;
+import dal.Session;
+import dal.factory.Factory;
+import dal.product.generic.ActivityCategory;
+import dal.product.generic.Manager;
+import dal.product.generic.Member;
+import dal.product.generic.ProductList;
+import dal.product.generic.Speaker;
+import dal.product.generic.SubscriptionPayment;
+import dal.product.generic.SubscriptionPaymentList;
+import dal.product.generic.User;
 
 public class UserManager {
 	

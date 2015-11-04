@@ -1,8 +1,8 @@
 package bl.manager;
 
-import persistance.data.generic.Speaker;
-import persistance.data.generic.SpeakerList;
-import persistance.factory.Factory;
+import dal.factory.Factory;
+import dal.product.generic.Speaker;
+import dal.product.generic.SpeakerList;
 
 public class SpeakerManager {
 

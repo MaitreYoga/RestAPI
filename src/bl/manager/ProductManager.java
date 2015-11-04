@@ -3,9 +3,9 @@ package bl.manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import persistance.factory.Factory;
-import persistance.data.generic.Product;
-import persistance.data.generic.ProductList;
+import dal.factory.Factory;
+import dal.product.generic.Product;
+import dal.product.generic.ProductList;
 
 public class ProductManager {
     private Factory factory;

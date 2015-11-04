@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 
 import bl.facade.ShopFacade;
 import bl.facade.UserFacade;
-import persistance.data.generic.Product;
+import dal.product.generic.Product;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

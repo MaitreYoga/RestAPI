@@ -3,9 +3,9 @@ package bl.manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import persistance.data.generic.Administrator;
-import persistance.data.generic.AdministratorList;
-import persistance.factory.Factory;
+import dal.factory.Factory;
+import dal.product.generic.Administrator;
+import dal.product.generic.AdministratorList;
 
 public class AdministratorManager {
 	private Factory factory;

@@ -2,9 +2,9 @@ package bl.manager;
 
 import java.util.List;
 
-import persistance.data.generic.Notification;
-import persistance.data.generic.NotificationList;
-import persistance.factory.Factory;
+import dal.factory.Factory;
+import dal.product.generic.Notification;
+import dal.product.generic.NotificationList;
 
 public class NotificationManager {
 	

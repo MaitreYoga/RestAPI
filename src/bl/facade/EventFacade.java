@@ -7,22 +7,22 @@ import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
-import persistance.data.generic.Accessory;
-import persistance.data.generic.AccessoryList;
-import persistance.data.generic.ActivityCategoryList;
-import persistance.data.generic.ActivityList;
-import persistance.data.generic.Event;
-import persistance.data.generic.EventList;
-import persistance.data.generic.ManagerList;
-import persistance.data.generic.Room;
-import persistance.data.generic.RoomList;
-import persistance.data.generic.SpeakerList;
 import bl.manager.ActivityCategoryManager;
 import bl.manager.ActivityManager;
 import bl.manager.EventManager;
 import bl.manager.ManagerManager;
 import bl.manager.SpeakerManager;
 import bl.manager.UserManager;
+import dal.product.generic.Accessory;
+import dal.product.generic.AccessoryList;
+import dal.product.generic.ActivityCategoryList;
+import dal.product.generic.ActivityList;
+import dal.product.generic.Event;
+import dal.product.generic.EventList;
+import dal.product.generic.ManagerList;
+import dal.product.generic.Room;
+import dal.product.generic.RoomList;
+import dal.product.generic.SpeakerList;
 import bl.manager.AccessoryManager;
 
 public class EventFacade 

@@ -10,6 +10,11 @@ import java.util.List;
 import ui.common.Frame;
 import ui.common.View;
 import bl.facade.ShopFacade;
+import dal.Session;
+import dal.product.generic.Product;
+import dal.product.generic.ProductCategory;
+import dal.product.mysql.MSProduct;
+import dal.product.mysql.MSProductCategory;
 
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
@@ -24,13 +29,6 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
-
-import persistance.Session;
-import persistance.data.generic.Product;
-import persistance.data.generic.ProductCategory;
-import persistance.data.mysql.MSProduct;
-import persistance.data.mysql.MSProductCategory;
-
 import javax.swing.border.EmptyBorder;
 
 @SuppressWarnings("serial")

@@ -50,7 +50,6 @@ public class UserManager {
 			return "Login already exists - Please try another one";
 		if(resultMessage.equals("User not registered")){
 			user.setLogin(login);
-			user.setPwd(pwd);
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
 			user.setPhone(phone);
@@ -85,6 +84,20 @@ public class UserManager {
 	{
 		user = factory.makeUser();
 		return user.load();
+	}
+	public User getUser(int id, String login)
+	{
+		user = factory.makeUser();
+		if(id > 0)
+		{
+			return user.loadProfileById(id);
+		}
+		else if(login != null && !login.isEmpty())
+		{
+			return user.loadProfileByLogin(login);
+		}
+		else
+			return null;
 	}
 
 	public boolean handleManagerAdd(String user)

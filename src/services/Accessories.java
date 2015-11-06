@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import bl.facade.EventFacade;
-import persistance.MySQLDatabase;
+import dal.MySQLDatabase;
 
 /**
  * Servlet implementation class Accessories

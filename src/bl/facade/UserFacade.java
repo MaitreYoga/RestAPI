@@ -118,7 +118,16 @@ public class UserFacade {
 	{
 		return userManager.getUsers();
 	}
-
+	
+	public User getUser(int id)
+	{
+		return userManager.getUser(id,"");
+	}
+	public User getUser(int id, String login)
+	{
+		return userManager.getUser(id,login);
+	}
+	
 	public boolean handleManagerAdd(String user)
 	{
 		return userManager.handleManagerAdd(user);

@@ -17,7 +17,6 @@ public abstract class User {
 	private int    postalCode;
 	private String town;
 	private String login;
-	private String pwd;
 	
     public User(){
     	this.firstName="";
@@ -29,7 +28,6 @@ public abstract class User {
     	this.postalCode = 0;
     	this.town = "";
     	this.login="";
-    	this.pwd="";
     }
     
     public abstract String check(String login);
@@ -41,8 +39,8 @@ public abstract class User {
     	return id;
     }
     
-    public void setId(String id) {
-    	this.id = Integer.parseInt(id);
+    public void setId(int id) {
+    	this.id = id;
     }
     
 	public String getFirstName() {
@@ -130,16 +128,11 @@ public abstract class User {
 		this.login = login;
 	}
 
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-
 	public abstract List<User> load();
 
 	public abstract int saveCurrentUser();
 
+	public abstract User loadProfileById(int id);
+
+	public abstract User loadProfileByLogin(String login);
 }

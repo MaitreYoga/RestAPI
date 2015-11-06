@@ -52,13 +52,12 @@ public class MSUser extends User
 	    	//Ouverture de session	    	
 	    	result.beforeFirst();
 	    	while ( result.next() ) {
-	    		super.setId(result.getString(index));
+	    		super.setId(result.getInt(index));
 				super.setFirstName(result.getString(firstname));
 				super.setLastName(result.getString(lastname));
 				super.setPhone(result.getString(phonenumber));
 				super.setMail(result.getString(mailadress));
 				super.setLogin(result.getString(MSUser.login));
-				super.setPwd(result.getString(password));
 				super.setIdAdress(result.getInt(fkadress));
 			}
 	    	if(super.getIdAdress() > 0)
@@ -133,8 +132,7 @@ public class MSUser extends User
 							+"'"+getLastName()+"',"
 							+"'"+getPhone()+"',"
 							+"'"+getMail()+"',"
-							+"'"+getLogin()+"',"
-							+"'"+getPwd()+"'"
+							+"'"+getLogin()+"'"
 							+ ")";
     	
     	MySQLDatabase.getInstance().insertRequest(request);
@@ -208,22 +206,14 @@ public class MSUser extends User
 	@Override
 	public List<User> load() 
 	{
-		 String request = "SELECT * FROM "+table+"";
+		 //String request = "SELECT * FROM user u, adress a where u.idadress = a.id";
+		String request = "SELECT * FROM user u";
 	        ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
-	        try 
-	        {
-	        	MSUser user;
-				while(result.next())
-				{
-					user = new MSUser();
-					user.setFirstName(result.getString("firstname"));
-					user.setLastName(result.getString("lastname"));
-					userList.add(user);
-				}
-			} 
-	        catch (SQLException e) 
-	        {
-				e.printStackTrace();
+	        User u = resultToUser(result);
+			while(u != null)
+			{
+				userList.add(u);
+				u = resultToUser(result);
 			}
 	        return userList;		
 	}
@@ -266,6 +256,54 @@ public class MSUser extends User
 			e.printStackTrace();
 		}
 		return userName;
+	}
+
+	@Override
+	public User loadProfileById(int id) {
+		
+		//String request = "SELECT * FROM user u, adress a "
+		//		+ "where u.idadress = a.id and u.id="+id+";";
+		String request = "SELECT * FROM user u where u.id="+id+";";
+		ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
+        return resultToUser(result);
+	}
+
+	@Override
+	public User loadProfileByLogin(String login) {
+		//String request = "SELECT * FROM user u, adress a "
+		//		+ "where u.idadress = a.id and u.login='"+login+"';";
+		String request = "SELECT * FROM user where login='"+login+"';";
+		ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
+        return resultToUser(result);
+	}
+	
+	private static User resultToUser (ResultSet result)
+	{
+		try
+		{
+			if(result.next())
+			{
+				MSUser user = new MSUser();
+				user.setId(result.getInt(index));
+				user.setFirstName(result.getString(firstname));
+				user.setLastName(result.getString(lastname));
+				user.setLogin(result.getString(login));
+				user.setMail(result.getString(mailadress));
+				user.setPhone(result.getString(phonenumber));
+				//user.setIdAdress(result.getInt("number"));
+				//user.setName(result.getString("name"));
+				//user.setPostalCode(result.getString("postalcode"));
+				//user.setTown(result.getString("town"));
+				return user;
+			}
+			else
+				return null;
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			return null;
+		} 
 	}
 		
 }

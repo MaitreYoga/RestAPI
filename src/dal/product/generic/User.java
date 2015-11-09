@@ -17,6 +17,7 @@ public abstract class User {
 	private int    postalCode;
 	private String town;
 	private String login;
+	private String connectiontoken;
 	
     public User(){
     	this.firstName="";
@@ -28,6 +29,7 @@ public abstract class User {
     	this.postalCode = 0;
     	this.town = "";
     	this.login="";
+    	this.connectiontoken="";
     }
     
     public abstract String check(String login);
@@ -57,6 +59,16 @@ public abstract class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public String getConnectionToken()
+	{
+		return this.connectiontoken;
+	}
+	
+	public void setConnectionToken(String connectionToken)
+	{
+		this.connectiontoken = connectionToken;
 	}
 
 	public String getPhone() {

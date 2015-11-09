@@ -1,9 +1,6 @@
-import dal.MySQLDatabase;
-import ui.common.Frame;
-import ui.view.LoginView;
-
 public class Main {
 	public static void main(String[] args) {
+		/*
 		//Display the loading splash screen
 		loadingScreen ls = new loadingScreen();
 		ls.setVisible(true);
@@ -15,6 +12,6 @@ public class Main {
 
 		//Remove the splash screen and show the application
 		ls.dispose();
-		f.setVisible(true);
+		f.setVisible(true);*/
 	}
 }

@@ -1,8 +1,6 @@
 package services;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -12,23 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bl.facade.UserFacade;
-import dal.MySQLDatabase;
 import utilitaries.Rest;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 /**
- * Servlet implementation class HelloWorld
+ * Servlet implementation class login
  */
-@WebServlet("/Users")
-public class Users extends HttpServlet {
+@WebServlet("/login")
+public class login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Users() {
+    public login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,14 +31,17 @@ public class Users extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		
 		HashMap<String,String> map = Rest.GetParameters(request);
-		if(map.get("id")!=null)
-			Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(Integer.parseInt(map.get("id")),""),response);
-		else if(map.get("login")!=null)
-			Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(0,map.get("login")),response);
-		else
-			Rest.AddObjectAsJSONResponse(UserFacade.instance().getUsers(),response);
+		
+		if(map.get("login").equals("toto") && map.get("mdp").equals("toto")){
+		
+		Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(7,map.get("login")),response);
+		}
+		else{
+			Rest.AddObjectAsJSONResponse(null, response);
+		}
 	}
 
 	/**

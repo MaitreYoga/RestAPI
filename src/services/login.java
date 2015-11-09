@@ -37,7 +37,7 @@ public class login extends HttpServlet {
 		
 		if(map.get("login").equals("toto") && map.get("mdp").equals("toto")){
 		
-		Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(7,""),response);
+		Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(7,map.get("login")),response);
 		}
 		else{
 			Rest.AddObjectAsJSONResponse(null, response);

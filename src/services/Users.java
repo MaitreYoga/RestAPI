@@ -45,7 +45,6 @@ public class Users extends HttpServlet {
 			Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(0,map.get("login")),response);
 		else
 			Rest.AddObjectAsJSONResponse(UserFacade.instance().getUsers(),response);
-			
 	}
 
 	/**

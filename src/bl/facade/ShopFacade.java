@@ -27,7 +27,15 @@ public class ShopFacade {
     private SaleManager saleManager;
     private InvoicesManager invoiceManager;
     
-    public ShopFacade(){
+	private static ShopFacade instance;
+	
+	public static ShopFacade instance() {
+		if(instance == null)
+			instance = new ShopFacade();
+		return instance;
+	}
+	
+    private ShopFacade(){
     	this.categoryManager = new CategoryManager();
     	this.cartManager = new ShoppingCartManager();
     	this.productManager = new ProductManager();

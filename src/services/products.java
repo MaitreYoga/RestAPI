@@ -17,13 +17,13 @@ import utilitaries.Rest;
  * Servlet implementation class products
  */
 @WebServlet("/products")
-public class products extends HttpServlet {
+public class Products extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public products() {
+    public Products() {
         super();
         // TODO Auto-generated constructor stub
     }

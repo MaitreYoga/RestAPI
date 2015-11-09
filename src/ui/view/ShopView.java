@@ -50,7 +50,7 @@ public class ShopView extends View implements TreeSelectionListener,MouseListene
 	public ShopView() {
 
 		super("Shop");
-		this.shopFacade = new ShopFacade();
+		this.shopFacade = ShopFacade.instance();
 		setLayout(null);
 
 		/* Tree */
@@ -154,7 +154,7 @@ public class ShopView extends View implements TreeSelectionListener,MouseListene
 		if(SwingUtilities.isRightMouseButton(me)){
 			try{
 				TreePath path = tree.getPathForLocation(me.getX(), me.getY());
-				DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path.getLastPathComponent();
+				final DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path.getLastPathComponent();
 				
 				/* ignore right clicks on products */
 				if (selectedNode.getUserObject().getClass().getName().endsWith("MSProductCategory")){

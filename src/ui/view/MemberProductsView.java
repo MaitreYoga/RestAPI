@@ -55,7 +55,7 @@ public class MemberProductsView extends View implements ActionListener, ChangeLi
 	    private JPanel makeOrderCell(String productName, int productPrice, int quantityAv, int idButton) {
 			/* Cellule de la liste*/
 			JPanel cell = new JPanel();
-			//La cellule est composée de 4 éléments
+			//La cellule est composï¿½e de 4 ï¿½lï¿½ments
 			cell.setLayout(new GridLayout(0, 4, 10, 0));
 			
 			JTextField lbNameProd;
@@ -152,7 +152,7 @@ public class MemberProductsView extends View implements ActionListener, ChangeLi
 	
 	public void setProducts(){	
 		listPanel.removeAll();
-		userFacade = new UserFacade();
+		userFacade = UserFacade.instance();
 		int idMember = userFacade.getMemberFromLogin();
 		products = userFacade.getProductsFromMember(idMember);
 		Product product;
@@ -180,7 +180,7 @@ public class MemberProductsView extends View implements ActionListener, ChangeLi
 
 	@Override
 	public void stateChanged(ChangeEvent ce) {
-		shopFacade = new ShopFacade();
+		shopFacade = ShopFacade.instance();
 		String spinner;
 		int newQuant;
 		for(int i = 0 ; i < products.size() ; i++) {

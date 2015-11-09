@@ -23,7 +23,7 @@ public class ManagerCatAskView extends View implements ActionListener{
     public ManagerCatAskView() {
 		super("Activity Category");
 		
-		userFacade = new UserFacade();
+		userFacade = UserFacade.instance();
 		
 		setLayout(null);
 		

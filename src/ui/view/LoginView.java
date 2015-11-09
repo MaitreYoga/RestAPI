@@ -36,7 +36,7 @@ public class LoginView extends View implements ActionListener, KeyListener{
     public LoginView(){
     	super("ZenLounge - Login");
     	
-    	userFacade = new UserFacade();
+    	userFacade = UserFacade.instance();
 
     	loginLabel = new JLabel("Login");
     	pwdLabel = new JLabel("Password");

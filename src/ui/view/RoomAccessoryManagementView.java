@@ -37,13 +37,13 @@ public class RoomAccessoryManagementView extends View{
 		setLayout(null);
 		eventFacade = new EventFacade();
 		
-		DefaultComboBoxModel accessoryModel = new DefaultComboBoxModel();
-		JComboBox accessoryList = new JComboBox(accessoryModel);
+		final DefaultComboBoxModel accessoryModel = new DefaultComboBoxModel();
+		final JComboBox accessoryList = new JComboBox(accessoryModel);
 		accessoryList.setBounds(219, 106, 161, 22);
 		add(accessoryList);
 		
 		DefaultListModel listModel = new DefaultListModel();
-		JList list = new JList(listModel);
+		final JList list = new JList(listModel);
 		list.addListSelectionListener(new ListSelectionListener() {
 			
 			@Override
@@ -81,7 +81,7 @@ public class RoomAccessoryManagementView extends View{
 		
 		
 		DefaultComboBoxModel allAccessoriesModel = new DefaultComboBoxModel();
-		JComboBox comboAcc = new JComboBox(allAccessoriesModel);
+		final JComboBox comboAcc = new JComboBox(allAccessoriesModel);
 		List<Accessory> accList = eventFacade.getAllAccessories().getList();
 		for (int i = 0; i < accList.size(); i++){
 			allAccessoriesModel.addElement(accList.get(i));

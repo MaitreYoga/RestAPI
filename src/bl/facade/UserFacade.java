@@ -43,7 +43,7 @@ public class UserFacade {
 		return instance;
 	}
     
-    public UserFacade(){
+    private UserFacade(){
     	userManager = new UserManager();
     	speakerManager = new SpeakerManager();
     	notificationManager = new NotificationManager();

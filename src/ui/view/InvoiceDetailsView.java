@@ -32,7 +32,7 @@ import java.util.List;
 
 @SuppressWarnings("serial")
 public class InvoiceDetailsView extends View implements ActionListener{
-    private ShopFacade shopFacade = new ShopFacade();
+    private ShopFacade shopFacade = ShopFacade.instance();
 
 	
     public List<JTextField> prodPriceList = new ArrayList<JTextField> ();
@@ -49,7 +49,7 @@ public class InvoiceDetailsView extends View implements ActionListener{
     private JPanel makeProductCell(String prodName, int quantity, int unitPrice, int idButton) {
 		/* Cellule de la liste*/
 		JPanel cell = new JPanel();
-		//La cellule est composée de 4 éléments
+		//La cellule est composï¿½e de 4 ï¿½lï¿½ments
 		cell.setLayout(new GridLayout(0, 6, 8, 0));
 		
 		lbProdName = new JTextField();

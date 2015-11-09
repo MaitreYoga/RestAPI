@@ -47,7 +47,7 @@ public class ManagerManagementView extends View implements ActionListener, ItemL
 		super("Manager");
 		setLayout(null);
 		
-		userFacade = new UserFacade();
+		userFacade = UserFacade.instance();
 		
 		/* Panel inside ScrollPane */
 		this.containerLayout = new CardLayout();

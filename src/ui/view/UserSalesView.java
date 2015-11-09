@@ -27,8 +27,8 @@ import ui.common.View;
 
 @SuppressWarnings("serial")
 public class UserSalesView extends View implements ActionListener{
-	   	private ShopFacade shopFacade = new ShopFacade();
-	    private UserFacade userFacade = new UserFacade();
+	   	private ShopFacade shopFacade = ShopFacade.instance();
+	    private UserFacade userFacade = UserFacade.instance();
 		
 	    public List<JTextField> prodPriceList = new ArrayList<JTextField> ();
 	    public List<JTextField> prodTotList = new ArrayList<JTextField> ();
@@ -43,7 +43,7 @@ public class UserSalesView extends View implements ActionListener{
 	    private JPanel makeOrderCell(int idOrder, String state, String date, String buyer, int idButton) {
 			/* Cellule de la liste*/
 			JPanel cell = new JPanel();
-			//La cellule est composée de 4 éléments
+			//La cellule est composï¿½e de 4 ï¿½lï¿½ments
 			cell.setLayout(new GridLayout(0, 8, 8, 0));
 			
 		    JTextField lbOrder;

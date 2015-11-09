@@ -290,7 +290,7 @@ public class MSUser extends User
 				user.setLogin(result.getString(login));
 				user.setMail(result.getString(mailadress));
 				user.setPhone(result.getString(phonenumber));
-				user.setConnectionToken("connectiontoken");
+				user.setConnectionToken(result.getString("connectiontoken"));
 				//user.setIdAdress(result.getInt("number"));
 				//user.setName(result.getString("name"));
 				//user.setPostalCode(result.getString("postalcode"));

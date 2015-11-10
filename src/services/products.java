@@ -32,9 +32,6 @@ public class Products extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-		System.out.println("test "+ ShopFacade.instance().getProduct(1).getBrand());
 		
 		HashMap<String,String> map = Rest.GetParameters(request);
 		if(map.get("id")!=null){

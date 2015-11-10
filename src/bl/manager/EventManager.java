@@ -56,10 +56,12 @@ public class EventManager
     	inscription.save(userID,chosenEvent);
     }
 
-    public List<Object> getAllEvents() 
+    public List<Event> getAllEvents() 
     {
     	eventList = factory.makeEventList();
-    	return eventList.load();
+    	eventList.load();
+    	System.out.println(eventList.getList());
+    	return eventList.getList();
     }
 
 	public boolean finaliseInscription(int memberID, int chosenEvent,int amount) 

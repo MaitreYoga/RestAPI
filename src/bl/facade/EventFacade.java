@@ -119,7 +119,7 @@ public class EventFacade
 		return eventManager.getPlace(placeID);
 	}
 
-	public List<Object> getAllEvents() 
+	public List<Event> getAllEvents() 
 	{
 		return eventManager.getAllEvents();
 	}

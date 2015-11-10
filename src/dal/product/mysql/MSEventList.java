@@ -26,24 +26,29 @@ public class MSEventList extends EventList
 	private static final String fkactivity = "idactivity";
 	private static final String fkperiod = "idperiod";
 	private static final String fkroom = "idroom";
+	private static final String fkspeaker = "idspeaker";
 
 	@Override
-	public List<Object> load() 
+	public void load() 
 	{
-		String request = "SELECT * FROM "+table+";";
+		String request = "SELECT * "
+				+ "FROM "+table+" e , period p "+
+				"Where e.idperiod = p.id ;";
 		ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
 		try 
 		{
 			while(result.next())
 			{
-				allEvents.add(result.getString(name));    
+				Event event = new MSEvent(result.getString(name), result.getInt(price),
+						result.getString(fkactivity), result.getString("startdate"), result.getString("enddate"), result.getString(fkroom), 
+						result.getString(fkspeaker));
+				this.add(event);    
 			}
 		} 
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
 		}
-		return allEvents;
 
 	}
 

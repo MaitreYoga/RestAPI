@@ -3,9 +3,6 @@ package dal.product.generic;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JComboBox;
-
-
 public abstract class EventList {
 	
 	private List<Event> events;
@@ -23,8 +20,11 @@ public abstract class EventList {
 	public int size(){
 		return events.size();
 	}
+	public List<Event> getList(){
+		return this.events;
+	}
 
-	public abstract List<Object> load();
+	public abstract void load();
 
 	public abstract void load(int userID);
 

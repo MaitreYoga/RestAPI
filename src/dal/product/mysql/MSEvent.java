@@ -14,7 +14,18 @@ public class MSEvent extends Event
 	public MSEvent(){
 		super();
 	}
-
+	
+	public MSEvent(String name, int price, String activity, String startperiod, String endperiod , String room,  String speaker){
+		super();
+		setName(name);
+	    setPrice(price);
+	    setActivity(activity);
+	    setStartDate(startperiod);
+	    setEndDate(endperiod);
+	    setPlace(room);
+	    setSpeaker(speaker);    
+	}
+	
 	private static final String table = "event";
 
 	private static final String index = "id";

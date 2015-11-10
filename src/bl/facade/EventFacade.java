@@ -1,12 +1,7 @@
 package bl.facade;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
-
 import bl.manager.ActivityCategoryManager;
 import bl.manager.ActivityManager;
 import bl.manager.EventManager;
@@ -36,7 +31,15 @@ public class EventFacade
     private EventManager eventManager;
     private AccessoryManager accessoryManager;
 
-    public EventFacade()
+    private static EventFacade instance;
+    
+	public static EventFacade instance() {
+		if(instance == null)
+			instance = new EventFacade();
+		return instance;
+	}
+	
+    private EventFacade()
     {
     	userManager = new UserManager();
     	speakerManager = new SpeakerManager();

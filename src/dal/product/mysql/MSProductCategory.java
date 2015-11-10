@@ -93,10 +93,11 @@ public class MSProductCategory extends ProductCategory {
 		try
 		{
 			while ( result.next() ) {
-				this.setIdCategory(parentCat);
-	    		this.productList.add(new MSProduct(result.getInt("id"),result.getString("name"),
+				
+				MSProduct produit = new MSProduct(result.getInt("id"),result.getString("name"),
 	    				result.getString("idbrand"),result.getInt("price"),result.getInt("quantityavailable"),
-	    				result.getInt("memberreduction"),result.getInt("idcat"),result.getInt("idseller")));
+	    				result.getInt("memberreduction"),result.getInt("idcategory"),result.getInt("idmember"));
+				this.productList.add(produit);
 			}
 	    	/* On ferme le ResultSet */
 		    result.close();

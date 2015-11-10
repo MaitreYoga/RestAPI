@@ -99,6 +99,4 @@ public abstract class ProductCategory {
 
 	public abstract int delete(int catId);
 
-
-
 }

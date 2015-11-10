@@ -33,7 +33,7 @@ public class MemberProfileView extends View implements ActionListener{
 	
     public MemberProfileView() {
 		super("Member");
-		userFacade = new UserFacade();
+		userFacade = UserFacade.instance();
     	boolean testMember = userFacade.isMember();
     	if (!testMember){
 			Frame.getFrame().setView(new MemberSubscriptionView(),true);
@@ -98,7 +98,7 @@ public class MemberProfileView extends View implements ActionListener{
 	}
     
     public void init(){
-    	userFacade = new UserFacade();
+    	userFacade = UserFacade.instance();
     	boolean testMember = userFacade.isMember();
     	System.out.println(testMember);
     	if (!testMember){
@@ -111,7 +111,7 @@ public class MemberProfileView extends View implements ActionListener{
     }
     
     public void setValues(){
-    	userFacade = new UserFacade();
+    	userFacade = UserFacade.instance();
     	
     	int idMember = userFacade.getMemberFromLogin();
     	SubscriptionPayment lastPayment = userFacade.getLastSubscriptionPayment(idMember);

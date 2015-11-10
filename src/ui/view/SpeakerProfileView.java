@@ -92,7 +92,7 @@ public class SpeakerProfileView extends View implements ActionListener{
 	}
     
     public void setValues(){
-    	userFacade = new UserFacade();
+    	userFacade = UserFacade.instance();
     	speaker = userFacade.getSpeaker();
     	
     	jobTextField.setText(speaker.getJob());

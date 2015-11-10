@@ -30,7 +30,7 @@ import ui.common.View;
 
 @SuppressWarnings("serial")
 public class UserInvoicesView extends View implements ActionListener{
-	   	private ShopFacade shopFacade = new ShopFacade();
+	   	private ShopFacade shopFacade = ShopFacade.instance();
 		
 	    public List<JTextField> prodPriceList = new ArrayList<JTextField> ();
 	    public List<JTextField> prodTotList = new ArrayList<JTextField> ();
@@ -43,7 +43,7 @@ public class UserInvoicesView extends View implements ActionListener{
 	    private JPanel makeOrderCell(int idInvoice, int amountPaid, String date, int idButton) {
 			/* Cellule de la liste*/
 			JPanel cell = new JPanel();
-			//La cellule est composée de 4 éléments
+			//La cellule est composï¿½e de 4 ï¿½lï¿½ments
 			cell.setLayout(new GridLayout(0, 4, 10, 0));
 			
 		    JTextField lbInvoice;

@@ -33,8 +33,8 @@ import java.util.List;
 
 @SuppressWarnings("serial")
 public class ShoppingCartView extends View implements ActionListener, ChangeListener{
-    private ShopFacade shopFacade = new ShopFacade();
-    private UserFacade userFacade = new UserFacade();
+    private ShopFacade shopFacade = ShopFacade.instance();
+    private UserFacade userFacade = UserFacade.instance();
 	
     public List<JTextField> prodPriceList = new ArrayList<JTextField> ();
     public List<JTextField> prodTotList = new ArrayList<JTextField> ();
@@ -50,7 +50,7 @@ public class ShoppingCartView extends View implements ActionListener, ChangeList
     private JPanel makeProductCell(String prodName, int quantity, int unitPrice, int idButton) {
 		/* Cellule de la liste*/
 		JPanel cell = new JPanel();
-		//La cellule est composée de 4 éléments
+		//La cellule est composï¿½e de 4 ï¿½lï¿½ments
 		cell.setLayout(new GridLayout(0, 6, 8, 0));
 		
 		lbProdName = new JTextField();
@@ -242,7 +242,7 @@ public class ShoppingCartView extends View implements ActionListener, ChangeList
 					List<String> sellers = shopFacade.getSellers(idProducts);
 					userFacade.sendNotifOrder(sellers, message);
 					
-					//On créé les commandes avec le statut correspondant
+					//On crï¿½ï¿½ les commandes avec le statut correspondant
 					shopFacade.createOrders(prods, sellers);
 					
 					// on vide le panier

@@ -17,7 +17,7 @@ import dal.MySQLDatabase;
 /**
  * Servlet implementation class Accessories
  */
-@WebServlet(name = "accessories", urlPatterns = { "/accessories" })
+@WebServlet(name = "Accessories", urlPatterns = { "/accessories" })
 public class Accessories extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

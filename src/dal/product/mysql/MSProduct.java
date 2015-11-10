@@ -37,7 +37,8 @@ public class MSProduct extends Product {
 	
 	public MSProduct(int idProd, String name, String brand, int price,
 			int quantityAvailable, int memberPrice, int productCat, int seller) {
-
+		super();
+		System.out.println("MSProduct");
 		super.setIdProd(idProd);
 		super.setName(name);
 		super.setBrand(brand);

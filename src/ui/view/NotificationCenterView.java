@@ -32,7 +32,7 @@ public class NotificationCenterView extends View implements ActionListener{
 	public NotificationCenterView() {
 		super("Notification Center");
 		
-		userFacade = new UserFacade();
+		userFacade = UserFacade.instance();
 		
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
@@ -55,7 +55,7 @@ public class NotificationCenterView extends View implements ActionListener{
 		scrollPane.setViewportView(listPanel);
 		listPanel.setLayout(new VerticalLayout());
 
-		//Enlever le commentaire suivant pour éditer avec WindowsBuilder l'apparence de la cellule
+		//Enlever le commentaire suivant pour ï¿½diter avec WindowsBuilder l'apparence de la cellule
 		listPanel.add(makeHeaderCell());
 		//listPanel.add(makeNotificationCell(-1,true,"Message","Sender"));
 				
@@ -67,7 +67,7 @@ public class NotificationCenterView extends View implements ActionListener{
 	private JPanel makeHeaderCell(){
 		JPanel headercell = new JPanel();
 		
-		//La cellule est composée de 4 éléments
+		//La cellule est composï¿½e de 4 ï¿½lï¿½ments
 		headercell.setLayout(new GridLayout(0, 3, 0, 0));
 		
 		JLabel messageLb = new JLabel("Message");
@@ -88,7 +88,7 @@ public class NotificationCenterView extends View implements ActionListener{
 	private JPanel makeNotificationCell(int id, boolean read, String message,String sender) {
 		JPanel cell = new JPanel();
 		
-		//La cellule est composée de 4 éléments
+		//La cellule est composï¿½e de 4 ï¿½lï¿½ments
 		cell.setLayout(new GridLayout(0, 3, 0, 0));
 		
 		JTextArea lbMessage = new JTextArea(message);

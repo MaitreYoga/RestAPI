@@ -36,8 +36,8 @@ public class ProductDetailsView extends View implements ActionListener{
 	private JTextField membPriceTextField;
 	private JButton btnBack;
 	JButton btnAddToCart;
-	private ShopFacade shopFacade = new ShopFacade();
-	private UserFacade userFacade = new UserFacade();
+	private ShopFacade shopFacade = ShopFacade.instance();
+	private UserFacade userFacade = UserFacade.instance();
 	View comingFromView;
 	
 	public Product prod;

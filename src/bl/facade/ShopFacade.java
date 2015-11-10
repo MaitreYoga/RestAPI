@@ -57,6 +57,11 @@ public class ShopFacade {
     	return categoryManager.getProductsByCat(parentCat);
     }
     
+
+	public List<Product> getProducts() {
+		return productManager.getProducts();
+	}
+    
     public void getCategory() {
     }
 
@@ -167,4 +172,5 @@ public class ShopFacade {
 		int amount = orderManager.getAmountOfOrderMember(ordersLines);
 		return amount;
 	}
+
 }

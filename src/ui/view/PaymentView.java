@@ -156,7 +156,7 @@ public class PaymentView extends View implements ActionListener
 		setLayout(null);
 
 		eventFacade = new EventFacade();
-		shopFacade = new ShopFacade();
+		shopFacade = ShopFacade.instance();
 		
 		rdbtnVisaCard = new JRadioButton("VISA Card");
 		rdbtnVisaCard.setBounds(298, 102, 109, 23);
@@ -241,7 +241,7 @@ public class PaymentView extends View implements ActionListener
 	{
 		super("Order "+order.getIdOrder()+" payment");
 		this.order = order;
-		shopFacade = new ShopFacade();
+		shopFacade = ShopFacade.instance();
 		this.amount = Integer.toString(shopFacade.getAmountOfOrderMember(order.getIdOrder()));
 		
 		setLayout(null);
@@ -353,7 +353,7 @@ public class PaymentView extends View implements ActionListener
         		Frame.getFrame().revalidate();
         		
     		} else if (e.getActionCommand().equals("order payment")){
-    			userFacade = new UserFacade();
+    			userFacade = UserFacade.instance();
     			
     			// on recupere la date du jour
     			String paymentDate;
@@ -361,7 +361,7 @@ public class PaymentView extends View implements ActionListener
     			SimpleDateFormat formater = new SimpleDateFormat( format ); 
     			Date date = new Date();
     			paymentDate = formater.format( date );
-    			// on recupere le type de paiement selectionné
+    			// on recupere le type de paiement selectionnï¿½
     			String paymentType = null;
     			if (rdbtnVisaCard.isSelected()){
     				paymentType = rdbtnVisaCard.getText();
@@ -391,9 +391,9 @@ public class PaymentView extends View implements ActionListener
     			Frame.getFrame().revalidate();
     		
     		} else if (e.getActionCommand().equals("subscription payment")){
-    			userFacade = new UserFacade();
+    			userFacade = UserFacade.instance();
     			
-    			// on recupere le type de paiement selectionné
+    			// on recupere le type de paiement selectionnï¿½
     			String paymentType = null;
     			if (rdbtnVisaCard.isSelected()){
     				paymentType = rdbtnVisaCard.getText();

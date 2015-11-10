@@ -45,7 +45,7 @@ public class MemberPaymentsHistoryView extends View implements ActionListener{
 	    private JPanel makeOrderCell(int idSubscriptionPayment, int amountPaid, String date) {
 			/* Cellule de la liste*/
 			JPanel cell = new JPanel();
-			//La cellule est composée de 4 éléments
+			//La cellule est composï¿½e de 4 ï¿½lï¿½ments
 			cell.setLayout(new GridLayout(0, 4, 10, 0));
 			
 		    JTextField lbidSubscriptionPayment;
@@ -153,7 +153,7 @@ public class MemberPaymentsHistoryView extends View implements ActionListener{
 	}
 	
 	public void setPayments(){	
-		userFacade = new UserFacade();
+		userFacade = UserFacade.instance();
 		int idMember = userFacade.getMemberFromLogin();
 		payments = userFacade.getPaymentsFromMember(idMember);
 		SubscriptionPayment subPayment;

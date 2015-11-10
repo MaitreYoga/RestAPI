@@ -46,7 +46,7 @@ public class SubscribeView extends View implements ActionListener {
 	
     public SubscribeView() {
 		super("Subscribe");
-		userFacade = new UserFacade();
+		userFacade = UserFacade.instance();
 		
 		SpringLayout springLayout = new SpringLayout();
 		this.setLayout(springLayout);
@@ -250,7 +250,7 @@ public class SubscribeView extends View implements ActionListener {
 	}
 
     private void subscribe(){
-    	String login = loginField.getText(); // Va servir pour la création du panier si le compte est créé
+    	String login = loginField.getText(); // Va servir pour la crï¿½ation du panier si le compte est crï¿½ï¿½
     	boolean error = false;
     	emptyLogin.setVisible(loginField.getText().isEmpty());
     	if(emptyLogin.isVisible())
@@ -281,9 +281,9 @@ public class SubscribeView extends View implements ActionListener {
     		if(subscribeError != null){
     			alert(subscribeError);
     		} else {
-    			userFacade = new UserFacade();
+    			userFacade = UserFacade.instance();
     			int userId = userFacade.getIdFromLogin(login);
-    			userFacade.createShoppingCart(userId); // on crée un panier pour le compte
+    			userFacade.createShoppingCart(userId); // on crï¿½e un panier pour le compte
     			if (confirm("Registration completed ! Would you like to automatically log in ?")) {
     			
 	    			if(userFacade.handleLogin(loginField.getText(),Encryption.hash(pwd1Field.getPassword())) != null) {

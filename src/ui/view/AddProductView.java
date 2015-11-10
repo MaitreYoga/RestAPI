@@ -31,7 +31,7 @@ public class AddProductView extends View implements ActionListener{
 	private JTextField qtyField;
 	public AddProductView(int category){
 		super("New product");
-		this.shopFacade = new ShopFacade();
+		this.shopFacade = ShopFacade.instance();
 		
 		this.category = category;
 		GridBagLayout gridBagLayout = new GridBagLayout();

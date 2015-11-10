@@ -40,7 +40,7 @@ public class CategoryManagementView extends View implements TreeSelectionListene
 	public CategoryManagementView() {
 
 		super("Product Category");
-		this.shopFacade = new ShopFacade();
+		this.shopFacade = ShopFacade.instance();
 
 		/* Tree */
 		this.root = new DefaultMutableTreeNode("Shop");
@@ -119,8 +119,8 @@ public class CategoryManagementView extends View implements TreeSelectionListene
 				/* if the user right-clicked on a category */
 				if (selectedNode.getUserObject().getClass().getName().endsWith("MSProductCategory")){
 					String lib = ((MSProductCategory)selectedNode.getUserObject()).getLibCat();
-					int parent = ((MSProductCategory)selectedNode.getUserObject()).getIdCategory();
-					int catId = ((MSProductCategory)selectedNode.getUserObject()).getIdCategory();
+					final int parent = ((MSProductCategory)selectedNode.getUserObject()).getIdCategory();
+					final int catId = ((MSProductCategory)selectedNode.getUserObject()).getIdCategory();
 					JPopupMenu menu = new JPopupMenu();
 					JMenuItem rename = new JMenuItem("Rename the \""+lib+"\" category");
 					JMenuItem delete = new JMenuItem("Delete the \""+lib+"\" category");

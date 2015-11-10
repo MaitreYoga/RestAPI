@@ -15,7 +15,7 @@ import utilitaries.Rest;
 /**
  * Servlet implementation class HelloWorld
  */
-@WebServlet("/Users")
+@WebServlet("/users")
 public class Users extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

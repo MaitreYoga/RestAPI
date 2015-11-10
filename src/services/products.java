@@ -38,13 +38,14 @@ public class Products extends HttpServlet {
 		
 		HashMap<String,String> map = Rest.GetParameters(request);
 		if(map.get("id")!=null){
-			//System.out.println(ShopFacade.instance().getProduct(Integer.parseInt(map.get("id"))));
 			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProduct(Integer.parseInt(map.get("id"))),response);
 		}
 		else if(map.get("cat")!=null){
 			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProductsByCat(Integer.parseInt(map.get("cat"))),response);
 		}
-			
+		else{
+			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProducts(),response);
+		}
 		
 	}
 

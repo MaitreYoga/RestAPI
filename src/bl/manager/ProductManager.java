@@ -15,10 +15,24 @@ public class ProductManager {
     public ProductManager(){
     	factory = Factory.getInstance();
     }
+    
     public Product getProduct(int idProduct) {
     	this.product = factory.makeProduct();
     	this.product.load(idProduct);
-    	return this.product;
+    	
+    	if(this.product.isNull()){
+    		return null;
+    	}
+    	else{
+    		return this.product;
+    	}
+    }
+    
+
+    public List<Product> getProducts() {
+    	this.productL = factory.makeProductList();
+    	this.productL.load();
+    	return this.productL.getList();
     }
     
 	public List<Integer> getSellers(List<Integer> idProducts) {

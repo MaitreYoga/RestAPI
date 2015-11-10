@@ -105,5 +105,9 @@ public abstract class Product {
     public String toString(){
     	return this.getBrand()+" - "+this.getName();
     }
+    
+    public boolean isNull(){
+    	return this.idProd==0;
+    }
 
 }

@@ -27,5 +27,11 @@ public abstract class ProductList {
 		return products.get(index);
 	}
 	
+	public List<Product> getList(){
+		return products;
+	}
+	
 	public abstract void load(int idMember);
+
+	public abstract void load();
 }

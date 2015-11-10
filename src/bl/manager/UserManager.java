@@ -34,13 +34,8 @@ public class UserManager {
     	factory = Factory.getInstance();
     }
 
-    public String handleLogin(String login, String pwd) {
-    	user = factory.makeUser();
-    	String loadResult = user.load(login, pwd);
-    	if(loadResult == null) {
-    		Session.setUserForSession(user);
-    	}
-    	return loadResult;
+    public User handleLogin(String login, String pwd) {
+    	return factory.makeUser().load(login, pwd);
     }
 	public String handleSubscribe(String login, String pwd, String firstName, String lastName, String phone, String mail, String adressNumber, String adressName, String postalCode, String town) {
 		user = factory.makeUser();

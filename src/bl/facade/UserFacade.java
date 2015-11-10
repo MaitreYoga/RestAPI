@@ -53,16 +53,16 @@ public class UserFacade {
     	cartManager = new ShoppingCartManager();
     }
     
-    public String handleLogin(String login, String pwd) {
+    public User handleLogin(String login, String pwd) {
     	//Set the user
-    	String errorMessage = userManager.handleLogin(login, pwd);
-    	if(errorMessage==null){
+    	return userManager.handleLogin(login, pwd);
+    	/*if(token!=null){
     		Session.setSpeakerID(speakerManager.getIdFromSpeaker(login));
     		Session.setManagerID(managerManagementManager.getManagerID(login));
     		Session.setAdminID(administratorManager.getAdministratorID(login));
     		Session.setMemberID(userManager.getMemberID(login));
     	}
-    	return errorMessage;
+    	return token;*/
     }
 
 	public String handleSubscribe(String login, String pwd, String firstName, String lastName, String phone, String mail, String adressNumber, String adressName, String postalCode, String town, boolean isSpeaker, String job) {

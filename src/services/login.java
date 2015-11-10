@@ -32,16 +32,8 @@ public class login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		HashMap<String,String> map = Rest.GetParameters(request);
-		
-		if(map.get("login").equals("toto") && map.get("mdp").equals("toto")){
-		
-		Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(7,map.get("login")),response);
-		}
-		else{
-			Rest.AddObjectAsJSONResponse(null, response);
-		}
+		Rest.AddObjectAsJSONResponse(UserFacade.instance().handleLogin(map.get("login"),map.get("mdp")),response);
 	}
 
 	/**

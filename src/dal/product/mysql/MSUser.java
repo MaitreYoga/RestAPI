@@ -7,6 +7,7 @@ import java.util.List;
 
 import dal.MySQLDatabase;
 import dal.product.generic.User;
+import utilitaries.Encryption;
 
 public class MSUser extends User
 {
@@ -37,9 +38,9 @@ public class MSUser extends User
 	private static final String town = "town";
 	
 	@Override
-	public String load(String login, String pwd) {
+	public User load(String login, String pwd) {
    	
-		String request = "SELECT "+index+", "+firstname+","+lastname+","+phonenumber+","+mailadress+","+fkadress+","+MSUser.login+","+password+" FROM "+table+" where "+MSUser.login+"='"+login+"' and "+password+"='"+pwd+"'";
+		String request = "SELECT * FROM "+table+" where "+MSUser.login+"='"+login+"' and "+password+"='"+pwd+"'";
     	
     	ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
     	
@@ -47,58 +48,21 @@ public class MSUser extends User
 		{
 	        //Empty result => Wrong informations
 			if(!result.next())
-				return "Informations incorrectes. Veuillez réessayer";
+				return null;
 
 	    	//Ouverture de session	    	
 	    	result.beforeFirst();
-	    	while ( result.next() ) {
-	    		super.setId(result.getInt(index));
-				super.setFirstName(result.getString(firstname));
-				super.setLastName(result.getString(lastname));
-				super.setPhone(result.getString(phonenumber));
-				super.setMail(result.getString(mailadress));
-				super.setLogin(result.getString(MSUser.login));
-				super.setIdAdress(result.getInt(fkadress));
-			}
-	    	if(super.getIdAdress() > 0)
-	    	{
-		    	request = "SELECT "+number+","+name+","+postalcode+","+town+" FROM "+table2+" where "+index2+"='"+super.getIdAdress()+"'";
-		    	
-		    	result = MySQLDatabase.getInstance().selectRequest(request);
-		    	
-				try
-				{
-			        //Empty result => Wrong informations
-					if(!result.next())
-						return "Informations incorrectes. Veuillez réessayer";
-					
-			    	//Ouverture de session	    	
-			    	result.beforeFirst();
-			    	while ( result.next() ) {
-						super.setNumber(result.getString(number));
-						super.setName(result.getString(name));
-						super.setPostalCode(result.getString(postalcode));
-						super.setTown(result.getString(town));
-			    	}
-				}
-				catch (SQLException e)
-				{
-					return e.getMessage();
-				}
-	    	}
-	    	
-		    /* On ferme le ResultSet */
-		    result.close();
-
-	    	return null;
+	    	User u = resultToUser(result);
+	    	String token = Encryption.hash(login+"a-6Dl8_9b"+pwd);
+	    	u.setConnectionToken(token);
+	    	request = "UPDATE user SET connectiontoken='"+token+"' where id="+u.getId();
+	    	MySQLDatabase.getInstance().updateRequest(request);
+	    	return u;
 		}
 		catch (SQLException e)
 		{
-			return e.getMessage();
-		}
-		catch (NullPointerException e)
-		{
-			return e.getMessage();
+			System.err.println(e.getMessage());
+			return null;
 		}
 	}
 	
@@ -290,7 +254,7 @@ public class MSUser extends User
 				user.setLogin(result.getString(login));
 				user.setMail(result.getString(mailadress));
 				user.setPhone(result.getString(phonenumber));
-				user.setConnectionToken(result.getString("connectiontoken"));
+				//user.setConnectionToken(result.getString("connectiontoken"));
 				//user.setIdAdress(result.getInt("number"));
 				//user.setName(result.getString("name"));
 				//user.setPostalCode(result.getString("postalcode"));

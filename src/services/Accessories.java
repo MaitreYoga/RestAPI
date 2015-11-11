@@ -44,7 +44,7 @@ public class Accessories extends HttpServlet {
 		else
 		{
 			Gson gson = new Gson();
-			String json = gson.toJson(new EventFacade().getAllAccessories().getList());
+			String json = gson.toJson(EventFacade.instance().getAllAccessories().getList());
 			System.out.println(json);
 			out.print(json);
 		}

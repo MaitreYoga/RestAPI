@@ -1,78 +1,58 @@
 package services;
 
-import java.io.IOException;
-import java.util.HashMap;
+import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 import bl.facade.ShopFacade;
-import bl.facade.UserFacade;
-import utilitaries.Rest;
+import dal.product.generic.Product;
 
-/**
- * Servlet implementation class products
- */
-@WebServlet("/products")
-public class products extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+@Path("products")
+@Produces("application/json")
+@Consumes("application/json")
+public class Products {
+	
+    @Context
+    private UriInfo context;
+
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor. 
      */
-    public products() {
-        super();
+    public Products() {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HashMap<String,String> map = Rest.GetParameters(request);
-		if(map.get("id")!=null){
-			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProduct(Integer.parseInt(map.get("id"))),response);
-		}
-		else if(map.get("cat")!=null){
-			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProductsByCat(Integer.parseInt(map.get("cat"))),response);
-		}
-		else{
-			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProducts(),response);
-		}
-		
-	}
+    /**
+     * Retrieves representation of an instance of Test3
+     * @return an instance of String
+     */
+    @GET
+    public List<Product> getProducts() {
+    	return ShopFacade.instance().getProducts();
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	@GET
+	@Path("{id}")
+	public Product getProduct(@PathParam("id") String id) {
+		return ShopFacade.instance().getProduct(Integer.parseInt(id));
 	}
-
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doOptions(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+	
+	//ShopFacade.instance().getProductsByCat(Integer.parseInt(map.get("cat"))
+	
+    /**
+     * PUT method for updating or creating an instance of Test3
+     * @param content representation for the resource
+     * @return an HTTP response with content of the updated or created resource.
+     */
+    @PUT
+    public void putJson(String content) {
+    }
 
 }
+

@@ -1,68 +1,57 @@
 package services;
 
-import java.io.IOException;
-import java.util.HashMap;
+import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 import bl.facade.EventFacade;
-import utilitaries.Rest;
+import dal.product.generic.Event;
 
-/**
- * Servlet implementation class Events
- */
-@WebServlet("/events")
-public class Events extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+@Path("events")
+@Produces("application/json")
+@Consumes("application/json")
+public class Events {
+	
+    @Context
+    private UriInfo context;
+
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor. 
      */
     public Events() {
-        super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HashMap<String,String> map = Rest.GetParameters(request);
-		if(map.get("id")!=null){
-			//Rest.AddObjectAsJSONResponse(EventFacade.instance().
-		}
-		else if(map.get("startdate")!=null){
-			//Rest.AddObjectAsJSONResponse(EventFacade.instance().
-		}
-		else{
-			Rest.AddObjectAsJSONResponse(EventFacade.instance().getAllEvents(),response);
-		}
-	}
+    /**
+     * Retrieves representation of an instance of events
+     * @return an instance of a List of event
+     */
+    @GET
+    public List<Event> getEvents() {
+    	
+    	return EventFacade.instance().getAllEvents();
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	@GET
+	@Path("{id}")
+	public Event getEvent(@PathParam("id") String id) {
+		//TODO method
+		return EventFacade.instance().getAllEvents().get(0);
 	}
-
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+	
+    /**
+     * PUT method for updating or creating an instance of Test3
+     * @param content representation for the resource
+     * @return an HTTP response with content of the updated or created resource.
+     */
+    @PUT
+    public void putJson(String content) {
+    }
 
 }

@@ -65,6 +65,7 @@ public class UserManager {
 		return member.getLogin(seller);
 	}
 	
+	
 	public int getSellerFromLogin(int userId) {
 		member = factory.makeMember();
 		return member.getSeller(userId);

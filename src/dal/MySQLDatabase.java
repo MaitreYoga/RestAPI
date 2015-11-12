@@ -39,7 +39,7 @@ public class MySQLDatabase
 			try {
 			    Class.forName( "com.mysql.jdbc.Driver" );
 			} catch ( ClassNotFoundException e ) {
-			    /* Gérer les éventuelles erreurs ici. */
+			    /* Gï¿½rer les ï¿½ventuelles erreurs ici. */
 			}
 			
 			/* Ouverture de la connexion */
@@ -66,7 +66,7 @@ public class MySQLDatabase
     public ResultSet selectRequest(String request) {
     	open();
     	
-    	/* Exécution d'une requête de lecture */
+    	/* Exï¿½cution d'une requï¿½te de lecture */
     	ResultSet resultat = null;
     	Statement statement = null;
 		
@@ -88,7 +88,7 @@ public class MySQLDatabase
     	if (connexion == null)
     		open();
     	
-    	/* Exécution d'une requête d'écriture */
+    	/* Exï¿½cution d'une requï¿½te d'ï¿½criture */
 		
     	try {
     		PreparedStatement ps = connexion.prepareStatement(request, java.sql.Statement.RETURN_GENERATED_KEYS);
@@ -113,7 +113,7 @@ public class MySQLDatabase
     	if (connexion == null)
     		open();
     	
-    	/* Exécution d'une requête d'écriture */
+    	/* Exï¿½cution d'une requï¿½te d'ï¿½criture */
     	Statement statement = null;
 		
     	try {
@@ -135,7 +135,7 @@ public class MySQLDatabase
     	if (connexion == null)
     		open();
     	
-    	/* Exécution d'une requête d'écriture */
+    	/* Exï¿½cution d'une requï¿½te d'ï¿½criture */
     	Statement statement = null;
 		
     	try {

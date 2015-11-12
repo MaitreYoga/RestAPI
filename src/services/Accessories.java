@@ -1,75 +1,60 @@
 package services;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 
 import com.google.gson.Gson;
 
 import bl.facade.EventFacade;
 import dal.MySQLDatabase;
+import dal.product.generic.Accessory;
 
-/**
- * Servlet implementation class Accessories
- */
-@WebServlet(name = "Accessories", urlPatterns = { "/accessories" })
-public class Accessories extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+@Path("accessories")
+@Produces("application/json")
+@Consumes("application/json")
+public class Accessories {
+	
+    @Context
+    private UriInfo context;
+
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor. 
      */
     public Accessories() {
-        super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("application/json");
-		PrintWriter out = response.getWriter();
-		
-		if(!MySQLDatabase.getInstance().open())
-		{
-			out.print("Cannot instantiate MySQL Connexion");
-		}
-		else
-		{
-			Gson gson = new Gson();
-			String json = gson.toJson(EventFacade.instance().getAllAccessories().getList());
-			System.out.println(json);
-			out.print(json);
-		}
-	}
+    /**
+     * Retrieves representation of an instance of Test3
+     * @return an instance of String
+     */
+    @GET
+    public List<Accessory> getAccessories() {
+    	
+    	return EventFacade.instance().getAllAccessories().getList();
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	@GET
+	@Path("{id}")
+	public Accessory getAccessory(@PathParam("id") String id) {
+		//TODO method
+		return EventFacade.instance().getAllAccessories().getList().get(0);
 	}
-
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+    /**
+     * PUT method for updating or creating an instance of Test3
+     * @param content representation for the resource
+     * @return an HTTP response with content of the updated or created resource.
+     */
+    @PUT
+    public void putJson(String content) {
+    }
 
 }

@@ -19,18 +19,14 @@ public class MSAccessory extends Accessory {
 	
 	private static final String table = "accessory";
 	
-	private static final String index = "id";
 	private static final String description = "description";
-	private static final String fkavailability = "idaccessoryavailability";
 
 	@Override
 	public void save() {
 		try
 		{
 			String request ="INSERT INTO "+table+" ("+description+") VALUES ('"+super.getDescription()+"')";
-			int result = MySQLDatabase.getInstance().insertRequest(request);
-			
-			
+			MySQLDatabase.getInstance().insertRequest(request);
 		}
 		 catch(Exception e)
         {
@@ -43,7 +39,7 @@ public class MSAccessory extends Accessory {
 		try
 		{
 			String request ="Update "+table+" set "+description+" = '"+super.getDescription()+"' where id = "+super.getID();
-			int result = MySQLDatabase.getInstance().updateRequest(request);
+			MySQLDatabase.getInstance().updateRequest(request);
 		}
 		 catch(Exception e)
         {
@@ -56,7 +52,7 @@ public class MSAccessory extends Accessory {
 		try
 		{
 			String request ="delete from "+table+" where id = "+super.getID();
-			int result = MySQLDatabase.getInstance().deleteRequest(request);
+			MySQLDatabase.getInstance().deleteRequest(request);
 		}
 		 catch(Exception e)
 	    {
@@ -73,7 +69,6 @@ public class MSAccessory extends Accessory {
 		{
 	    	//Ouverture de session
 	    	result.beforeFirst();
-	    	Accessory access;
 	    	while (result.next()) {
 	    		list.add(new MSAccessory(result.getString("description"),result.getInt("id")));
 			}

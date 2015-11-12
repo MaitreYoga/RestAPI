@@ -16,7 +16,7 @@ import dal.product.generic.Product;
 @Path("products")
 @Produces("application/json")
 @Consumes("application/json")
-public class Products {
+public class products {
 	
     @Context
     private UriInfo context;
@@ -24,8 +24,8 @@ public class Products {
     /**
      * Default constructor. 
      */
-    public Products() {
-        // TODO Auto-generated constructor stub
+    public products() {
+
     }
 
     /**

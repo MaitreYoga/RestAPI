@@ -2,8 +2,6 @@ package dal.product.mysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 import dal.MySQLDatabase;
 import dal.product.generic.Event;
@@ -47,7 +45,7 @@ public class MSEvent extends Event
 
 		//Create the Period
 		String request2 = "insert into period values ("+id+",'"+super.getStartDate()+"','"+super.getEndDate()+"')";
-		int result2 = MySQLDatabase.getInstance().insertRequest(request2);
+		MySQLDatabase.getInstance().insertRequest(request2);
 		
 		//Create the event
 		String request3 = "insert into "+table+" (name,price,idroom,idperiod,idactivity,idspeaker) values "
@@ -57,7 +55,7 @@ public class MSEvent extends Event
 				+ ""+id+", "
 				+ ""+super.getActivity()+", "
 				+ ""+super.getSpeaker()+");";
-		int result3 = MySQLDatabase.getInstance().insertRequest(request3);
+		MySQLDatabase.getInstance().insertRequest(request3);
 		}
 		catch (NumberFormatException | SQLException e) {
 			System.err.println(e.getMessage());

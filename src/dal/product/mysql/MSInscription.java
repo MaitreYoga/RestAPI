@@ -8,7 +8,6 @@ public class MSInscription extends Inscription
 
 	private static final String table = "inscription";
 
-	private static final String index = "id";
 	private static final String fkstate = "idstate";
 	private static final String fkmember = "idmember";
 	private static final String fkevent = "idevent";
@@ -39,6 +38,6 @@ public class MSInscription extends Inscription
 
 	@Override
 	public void save(int userID, String chosenEvent) {
-		// TODO Auto-generated method stub
+
 	}
 }

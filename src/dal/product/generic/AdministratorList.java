@@ -11,7 +11,7 @@ public abstract class AdministratorList{
 		admins = new ArrayList<Administrator>();
 	}
 	
-	public abstract String load();
+	public abstract List<Integer> load();
 	
 	public void add(Administrator admin){
 		admins.add(admin);

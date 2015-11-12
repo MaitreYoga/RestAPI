@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dal.factory.Factory;
-import dal.product.generic.Accessory;
 import dal.product.generic.Activity;
 import dal.product.generic.ActivityList;
 

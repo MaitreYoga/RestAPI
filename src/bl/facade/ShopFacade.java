@@ -6,12 +6,9 @@ import bl.manager.CategoryManager;
 import bl.manager.InvoicesManager;
 import bl.manager.OrdersManager;
 import bl.manager.ProductManager;
-import bl.manager.SaleManager;
 import bl.manager.ShoppingCartManager;
 import bl.manager.UserManager;
-import dal.Session;
 import dal.product.generic.InvoiceList;
-import dal.product.generic.Order;
 import dal.product.generic.OrderLineList;
 import dal.product.generic.OrderList;
 import dal.product.generic.Product;
@@ -24,7 +21,7 @@ public class ShopFacade {
     private ProductManager productManager;
     private UserManager userManager;
     private OrdersManager orderManager;
-    private SaleManager saleManager;
+    //private SaleManager saleManager;
     private InvoicesManager invoiceManager;
     
 	private static ShopFacade instance;
@@ -41,7 +38,7 @@ public class ShopFacade {
     	this.productManager = new ProductManager();
     	this.userManager = new UserManager();
     	this.orderManager = new OrdersManager();
-    	this.saleManager = new SaleManager();
+    	//this.saleManager = new SaleManager();
     	this.invoiceManager = new InvoicesManager();
     }
 
@@ -65,18 +62,15 @@ public class ShopFacade {
     public void getCategory() {
     }
 
-    public ProductLineList getAllProductInCart() {
-    	int userId = Session.user().getId();
+    public ProductLineList getAllProductInCart(int userId) {
     	return cartManager.getAllProductInCart(userId);
     }
 
-    public void handleRemove(int product) {
-    	int userId = Session.user().getId();
+    public void handleRemove(int product, int userId) {
     	cartManager.handleRemove(product, userId);
     }
 
-	public void changeQuantity(int product, int quantity) {
-    	int userId = Session.user().getId();
+	public void changeQuantity(int product, int quantity, int userId) {
     	cartManager.handleChangeQuantity(product, quantity, userId);
 	}
 
@@ -90,20 +84,19 @@ public class ShopFacade {
 		return sellersLogins;
 	}
 
-	public void createOrders(ProductLineList prods, List<String> sellers) {
-		orderManager.createOrders(prods, sellers);
+	public void createOrders(int userId, ProductLineList prods, List<Integer> sellers) {
+		orderManager.createOrders(userId, prods, sellers);
 	}
 
-	public String sellProduct(String name, String brand, int price,
+	public String sellProduct(int idmember, String name, String brand, int price,
 			int memberPrice, int quantity, int productCat,String url) {
-			int id = userManager.getSellerFromLogin(Session.user().getId());
-			String result = productManager.save(id,productCat,name,brand,price,memberPrice,quantity,url);
+			//int id = userManager.getSellerFromLogin(Session.user().getId());
+			String result = productManager.save(idmember,productCat,name,brand,price,memberPrice,quantity,url);
 		return result;
 		
 	}
 	
-	public OrderList getAllOrders() {
-    	int userId = Session.user().getId();
+	public OrderList getAllOrders(int userId) {
 		return orderManager.getAllOrders(userId);
 	}
 	
@@ -136,8 +129,7 @@ public class ShopFacade {
     	return orderManager.getProductsFromOrder(idOrder);
 	}
 
-	public void addToCart(int idProd) {
-    	int userId = Session.user().getId();
+	public void addToCart(int userId, int idProd) {
 		cartManager.addToCart(idProd, userId);
 	}
 
@@ -157,8 +149,7 @@ public class ShopFacade {
 		
 	}
 
-	public InvoiceList getAllInvoices() {
-    	int userId = Session.user().getId();
+	public InvoiceList getAllInvoices(int userId) {
 		return invoiceManager.getAllInvoices(userId);
 	}
 

@@ -2,11 +2,6 @@ package dal.product.generic;
 
 import java.util.List;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
-
-import dal.product.mysql.MSRoom;
-
 public abstract class Room {
 
 	private int idRoom;

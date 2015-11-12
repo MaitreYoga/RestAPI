@@ -51,15 +51,12 @@ public class EventFacade
     	accessoryManager = new AccessoryManager();
     }
 
-	public String handleEventInscription(String chosenEvent) 
+	public void handleEventInscription(int userId, String chosenEvent) 
 	{
-		int userID = userManager.getUserID();
-		eventManager.handleEventInscription(userID, chosenEvent);
-		return userManager.getUserLogin();
+		eventManager.handleEventInscription(userId, chosenEvent);
 	}
 
-	public EventList getUserEvents() {
-		int userID = userManager.getUserID();
+	public EventList getUserEvents(int userID) {
 		return eventManager.getUserEvents(userID);
 	}
 
@@ -141,7 +138,7 @@ public class EventFacade
 		return eventManager.getEventID(event);
 	}
 
-	public int getMember(String userID) {
+	public int getMember(int userID) {
 		return eventManager.getMember(userID);
 	}
 

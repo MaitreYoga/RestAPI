@@ -27,7 +27,6 @@ public class MSUser extends User
 	private static final String mailadress = "mailadress";
 	private static final String login = "login";
 	private static final String password = "password";
-	private static final String fkadress = "idadress";
 	
 	private static final String table2 = "adress";
 

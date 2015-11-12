@@ -24,7 +24,6 @@ public class Users extends HttpServlet {
      */
     public Users() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -44,7 +43,6 @@ public class Users extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

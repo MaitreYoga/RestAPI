@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dal.MySQLDatabase;
-import dal.Session;
 import dal.product.generic.Speaker;
 
 public class MSSpeaker extends Speaker {
@@ -73,10 +72,10 @@ public class MSSpeaker extends Speaker {
 	}
 
 	@Override
-	public int getIdFromSpeaker(String user) {
+	public int getIdFromSpeaker(int userId) {
 		int speakerId = 0;
 		
-		String request = "SELECT idspeaker FROM user WHERE login ='"+user+"'";
+		String request = "SELECT idspeaker FROM user WHERE id ="+userId+"";
         ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
        
         try 

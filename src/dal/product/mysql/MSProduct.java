@@ -104,7 +104,6 @@ public class MSProduct extends Product {
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		
 	}
 

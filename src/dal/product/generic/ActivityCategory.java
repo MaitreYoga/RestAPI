@@ -2,9 +2,6 @@ package dal.product.generic;
 
 import java.util.List;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
-
 public abstract class ActivityCategory 
 {
 	private String ID;

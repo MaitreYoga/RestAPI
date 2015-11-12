@@ -27,9 +27,9 @@ public class SpeakerManager {
 		return speaker;
 	}
 	
-	public int getIdFromSpeaker(String user) {
+	public int getIdFromSpeaker(int userId) {
 		speaker = factory.makeSpeaker();
-		return speaker.getIdFromSpeaker(user);
+		return speaker.getIdFromSpeaker(userId);
 	}
 
 	public void handleEdit(int speakerId, String job, String sDescritpion, String lDescription) {

@@ -1,8 +1,5 @@
 package dal.product.generic;
 
-import java.util.List;
-
-
 public abstract class ProductLine {
 
 	private int idProduct;

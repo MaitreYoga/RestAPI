@@ -1,12 +1,6 @@
 package bl.manager;
 
-import java.util.Date;
 import java.util.List;
-
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
-
-import org.omg.CORBA.OMGVMCID;
 
 import dal.factory.Factory;
 import dal.product.generic.Activity;
@@ -94,10 +88,10 @@ public class EventManager
 		return room.load(placeID);
 	}
 
-	public int getMember(String login) 
+	public int getMember(int userId) 
 	{
 		member = factory.makeMember();
-		return member.getMemberId(login);
+		return member.getMemberId(userId);
 	}
 
 	public int getEventID(String event) 

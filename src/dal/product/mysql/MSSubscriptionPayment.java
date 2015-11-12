@@ -34,7 +34,6 @@ public class MSSubscriptionPayment extends SubscriptionPayment {
 				res = result.getInt(1);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return res;

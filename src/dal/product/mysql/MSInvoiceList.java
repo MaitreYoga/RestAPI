@@ -4,13 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dal.MySQLDatabase;
-import dal.product.generic.Administrator;
 import dal.product.generic.Invoice;
 import dal.product.generic.InvoiceList;
-import dal.product.generic.Notification;
-import dal.product.generic.NotificationList;
-import dal.product.generic.Order;
-import dal.product.generic.OrderList;
 
 public class MSInvoiceList extends InvoiceList {
 

@@ -12,11 +12,6 @@ public class MSAccessoryList extends AccessoryList {
 	public MSAccessoryList() {
 		super();
 	}
-	
-	private static final String table = "accessory";
-	
-	private static final String index = "id";
-	private static final String description = "description";
 
 	@Override
 	public void load() {

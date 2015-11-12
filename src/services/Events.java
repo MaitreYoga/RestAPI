@@ -25,7 +25,6 @@ public class Events {
      * Default constructor. 
      */
     public Events() {
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -41,7 +40,6 @@ public class Events {
 	@GET
 	@Path("{id}")
 	public Event getEvent(@PathParam("id") String id) {
-		//TODO method
 		return EventFacade.instance().getAllEvents().get(0);
 	}
 	

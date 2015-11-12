@@ -5,10 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-
 import dal.MySQLDatabase;
 import dal.product.generic.ActivityCategory;
 
@@ -18,7 +14,6 @@ public class MSActivityCategory extends ActivityCategory
 
 	private static final String table = "activitycategory";
 
-	private static final String index = "id";
 	private static final String name = "name";
 	
 	@Override

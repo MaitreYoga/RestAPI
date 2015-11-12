@@ -14,15 +14,14 @@ public class MSMember extends Member
 
 	private static final String table = "member";
 
-	private static final String index = "id";
 	private static final String joiningdate = "joiningdate";
 
 	@Override
-	public int getMemberId(String login) 
+	public int getMemberId(int userId) 
 	{
 		int memberId = 0;
 		
-		String request = "SELECT idmember FROM user WHERE login = '"+login+"'";
+		String request = "SELECT idmember FROM user WHERE id = '"+userId+"'";
         ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
        
         try 
@@ -53,7 +52,6 @@ public class MSMember extends Member
 			}
 			result.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return login;
@@ -73,7 +71,6 @@ public class MSMember extends Member
 			}
 			result.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return seller;

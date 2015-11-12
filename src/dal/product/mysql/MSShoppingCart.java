@@ -42,7 +42,6 @@ public class MSShoppingCart extends ShoppingCart {
 				idShoppingCart = result.getInt(index);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return idShoppingCart;

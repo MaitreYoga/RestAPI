@@ -8,7 +8,6 @@ import dal.product.generic.Activity;
 import dal.product.generic.ActivityCategory;
 import dal.product.generic.ActivityList;
 import dal.product.generic.Manager;
-import dal.product.generic.Speaker;
 
 public class MSActivityList extends ActivityList {
 

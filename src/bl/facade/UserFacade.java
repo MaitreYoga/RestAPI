@@ -2,10 +2,6 @@ package bl.facade;
 
 import java.util.List;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
 import bl.manager.AdministratorManager;
 import bl.manager.ManagerManager;
 import bl.manager.NotificationManager;
@@ -13,11 +9,7 @@ import bl.manager.ProductManager;
 import bl.manager.ShoppingCartManager;
 import bl.manager.SpeakerManager;
 import bl.manager.UserManager;
-import dal.Session;
-import dal.product.generic.Notification;
 import dal.product.generic.NotificationList;
-import dal.product.generic.Product;
-import dal.product.generic.ProductLineList;
 import dal.product.generic.ProductList;
 import dal.product.generic.Speaker;
 import dal.product.generic.SubscriptionPayment;
@@ -73,14 +65,12 @@ public class UserFacade {
 		return errorMessage;
 	}
 
-	public String handleActivityCatAsk(String activityCategory) {
-		String userLogin = Session.user().getLogin();
-		List<String> administratorLogins = administratorManager.getAllAdministratorID();
-		return notificationManager.handleActivityCatAsk(userLogin,activityCategory,administratorLogins);
+	public String handleActivityCatAsk(int userId, String activityCategory) {
+		List<Integer> administratorIds = administratorManager.getAllAdministratorID();
+		return notificationManager.handleActivityCatAsk(userId,activityCategory,administratorIds);
 	}
 
-	public NotificationList getNotifications() {
-		int userId = Session.user().getId();
+	public NotificationList getNotifications(int userId) {
 		return notificationManager.getNotificationsForLogin(userId);
 	}
 
@@ -96,17 +86,13 @@ public class UserFacade {
 		return userManager.getIdFromLogin(login);
 	}
 
-	public Speaker getSpeaker() {
-		String login = Session.user().getLogin();
-		int speakerId = speakerManager.getIdFromSpeaker(login);
+	public Speaker getSpeaker(int userId) {
+		int speakerId = speakerManager.getIdFromSpeaker(userId);
 		return speakerManager.getSpeaker(speakerId);
 	}
 
-	public void editSpeaker(String job, String sDescritpion, String lDescription) {
-		String login = Session.user().getLogin();
-		int speakerId = speakerManager.getIdFromSpeaker(login);
-		speakerManager.handleEdit(speakerId, job, sDescritpion, lDescription);
-		
+	public void editSpeaker(int speakerId, String job, String sDescritpion, String lDescription) {
+		speakerManager.handleEdit(speakerId, job, sDescritpion, lDescription);		
 	}
 
 	public String updateManagerList() 
@@ -134,9 +120,8 @@ public class UserFacade {
 		
 	}
 
-	public void sendNotifOrder(List<String> receivers, String message) {
-		String senderLogin = Session.user().getLogin();
-		notificationManager.handleOrderNotif(senderLogin, receivers, message);
+	public void sendNotifOrder(int senderId, List<Integer> receivers, String message) {
+		notificationManager.handleOrderNotif(senderId, receivers, message);
 	}
 
 	public boolean handleManagerDelete(String userName) 
@@ -155,9 +140,8 @@ public class UserFacade {
 		cartManager.createShoppingCart(userId);
 	}
 
-	public int getMemberFromLogin() {
-		String login = Session.user().getLogin();
-		return userManager.getMemberID(login);
+	public int getMemberFromLogin(int userId) {
+		return userManager.getMemberID(userId);
 	}
 
 	public SubscriptionPaymentList getPaymentsFromMember(int idMember) {
@@ -172,15 +156,7 @@ public class UserFacade {
 		return userManager.getLastSubscriptionPayment(idMember);
 	}
 
-	public boolean isMember() {
-		/*String login = Session.user().getLogin();
-		System.out.println("2"+ userManager.getMemberID(login));
-		return !(userManager.getMemberID(login) == null);*/
-		return Session.checkPermission("Member");
-	}
-
-	public int registerMember() {
-		int userId = Session.user().getId();
+	public int registerMember(int userId) {
 		return userManager.registerMember(userId);
 	}
 

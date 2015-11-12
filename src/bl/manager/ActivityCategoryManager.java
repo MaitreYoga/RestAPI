@@ -1,7 +1,5 @@
 package bl.manager;
 
-import javax.swing.JTextArea;
-
 import dal.factory.Factory;
 import dal.product.generic.ActivityCategory;
 import dal.product.generic.ActivityCategoryList;

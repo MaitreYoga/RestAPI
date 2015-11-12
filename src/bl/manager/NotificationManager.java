@@ -15,9 +15,9 @@ public class NotificationManager {
 		factory = Factory.getInstance();
 	}
 	
-	public String handleActivityCatAsk(String userLogin, String activityCategory,List<String>receivers) {
+	public String handleActivityCatAsk(int senderId, String activityCategory,List<Integer>receivers) {
 		Notification notif = factory.makeNotification();
-		notif.setSender(userLogin);
+		notif.setSender(senderId);
 		notif.setMessage(activityCategory);
 		notif.setReceivers(receivers);
 		notif.save();
@@ -36,9 +36,9 @@ public class NotificationManager {
 		notif.read(numNotif);
 	}
 
-	public void handleOrderNotif(String sender, List<String> receivers, String message) {
+	public void handleOrderNotif(int senderId, List<Integer> receivers, String message) {
 		Notification notif = factory.makeNotification();
-		notif.setSender(sender);
+		notif.setSender(senderId);
 		notif.setMessage(message);
 		notif.setReceivers(receivers);
 		notif.save();

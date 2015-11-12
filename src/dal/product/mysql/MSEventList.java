@@ -5,9 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-
 import dal.MySQLDatabase;
 import dal.product.generic.Event;
 import dal.product.generic.EventList;
@@ -20,11 +17,9 @@ public class MSEventList extends EventList
 
 	private static final String table = "event";
 
-	private static final String index = "id";
 	private static final String name = "name";
 	private static final String price = "price";
 	private static final String fkactivity = "idactivity";
-	private static final String fkperiod = "idperiod";
 	private static final String fkroom = "idroom";
 	private static final String fkspeaker = "idspeaker";
 
@@ -65,8 +60,6 @@ public class MSEventList extends EventList
 		try 
 		{
 			Event e;
-			String subquery;
-			ResultSet subResult;
 			while(result.next())
 			{
 				e = new MSEvent();

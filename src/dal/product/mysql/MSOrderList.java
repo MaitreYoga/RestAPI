@@ -4,20 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dal.MySQLDatabase;
-import dal.product.generic.Administrator;
-import dal.product.generic.Notification;
-import dal.product.generic.NotificationList;
 import dal.product.generic.Order;
 import dal.product.generic.OrderList;
 
 public class MSOrderList extends OrderList {
 
-	private static final String table = "orders";
-
 	private static final String index = "id";
 	private static final String isvalidated = "isvalidated";
-	//private static final String fkinvoice = "idinvoice";
-	private static final String fkuser = "iduser";
 
 	@Override
 	public void load(int userId) {

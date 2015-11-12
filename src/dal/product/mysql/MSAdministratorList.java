@@ -2,20 +2,17 @@ package dal.product.mysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dal.MySQLDatabase;
-import dal.product.generic.Administrator;
 import dal.product.generic.AdministratorList;
 
 public class MSAdministratorList extends AdministratorList {
 
-	private static final String table = "administrator";
-
-	private static final String index = "id";
-
 	@Override
-	public String load() {
-		String request = "SELECT login FROM user where (idadministrator is not null OR idadministrator > 0)";
+	public List<Integer> load() {
+		String request = "SELECT id FROM user where (idadministrator is not null OR idadministrator > 0)";
     	
     	ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
     	
@@ -23,28 +20,27 @@ public class MSAdministratorList extends AdministratorList {
 		{
 	        //Empty result => Wrong informations
 			if(!result.next())
-				return "Aucun administrateur dans la base";
+				return null;
 			
 	    	//Ouverture de session	    	
 	    	result.beforeFirst();
-	    	Administrator admin;
+	    	List<Integer> admins = new ArrayList<Integer>();
 	    	while ( result.next() ) {
-	    		admin = new MSAdministrator();
-	    		admin.setUser(result.getString("login"));
-				super.add(admin);
+	    		admins.add(result.getInt("id"));
 			}
 		    /* On ferme le ResultSet */
 		    result.close();
 
-	    	return null;
+	    	return admins;
 		}
 		catch (SQLException e)
 		{
-			return e.getMessage();
+			System.err.println(e.getMessage());
 		}
 		catch (NullPointerException e)
 		{
-			return e.getMessage();
+			System.err.println(e.getMessage());
 		}
+		return null;
 	}
 }

@@ -2,8 +2,6 @@ package dal.product.generic;
 
 import java.util.List;
 
-import javax.swing.JComboBox;
-
 public abstract class Period {
 
 	public Period() 

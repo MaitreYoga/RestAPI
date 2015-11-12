@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dal.MySQLDatabase;
-import dal.Session;
 import dal.product.generic.Speaker;
 import dal.product.generic.SpeakerList;
 
@@ -16,14 +15,13 @@ public class MSSpeakerList extends SpeakerList {
 
 	private static final String table = "speaker";
 
-	private static final String index = "id";
 	private static final String job = "job";
 	private static final String shortdescription = "shortdescription";
 	private static final String detaileddescription = "detaileddescription";
 
 	@Override
 	public void load() {
-		String request = "SELECT "+job+","+shortdescription+","+detaileddescription+" FROM "+table+" where "+index+" = "+Session.user().getId()+";";
+		String request = "SELECT "+job+","+shortdescription+","+detaileddescription+" FROM "+table+" where (idspeaker is not null or idspeaker > 0);";
     	
     	ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
     	

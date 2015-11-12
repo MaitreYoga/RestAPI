@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import dal.Session;
 import dal.factory.Factory;
 import dal.product.generic.Member;
 import dal.product.generic.Order;
@@ -30,13 +29,12 @@ public class OrdersManager {
     	factory = Factory.getInstance();
     }
 	
-	public void createOrders(ProductLineList prods, List<String> sellers) {
+	public void createOrders(int userId, ProductLineList prods, List<Integer> sellers) {
 		order = factory.makeOrder();
-		int userId = Session.user().getId();
 		
 		// on supprime les doublons de sellers
 		boolean test = false;
-		List<String> sellersU = new ArrayList<String>();
+		List<Integer> sellersU = new ArrayList<Integer>();
 		sellersU.add(sellers.get(0));
 		for (int k = 1; k<sellers.size(); k++){
 			for (int y = 0; y<sellersU.size(); y++){

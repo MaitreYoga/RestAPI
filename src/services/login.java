@@ -24,14 +24,12 @@ public class login extends HttpServlet {
      */
     public login() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HashMap<String,String> map = Rest.GetParameters(request);
 		Rest.AddObjectAsJSONResponse(UserFacade.instance().handleLogin(map.get("login"),map.get("mdp")),response);
 	}
@@ -40,7 +38,6 @@ public class login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

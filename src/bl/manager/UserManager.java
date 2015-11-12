@@ -5,16 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
-import dal.Session;
 import dal.factory.Factory;
 import dal.product.generic.ActivityCategory;
 import dal.product.generic.Manager;
 import dal.product.generic.Member;
-import dal.product.generic.ProductList;
 import dal.product.generic.Speaker;
 import dal.product.generic.SubscriptionPayment;
 import dal.product.generic.SubscriptionPaymentList;
@@ -125,11 +119,11 @@ public class UserManager {
 		return sellersLogins;
 	}
 	
-	public int getMemberID(String login){
+	public int getMemberID(int userId){
 		Member m = factory.makeMember();
-		return m.getMemberId(login);
+		return m.getMemberId(userId);
 	}
-	public String getSpeakerID(String userID){
+	public String getSpeakerID(int userID){
 		Speaker s = factory.makeSpeaker();
 		int id = s.getIdFromSpeaker(userID);
 		if(id == 0)
@@ -147,16 +141,7 @@ public class UserManager {
 	public List<Object> getCategories() 
 	{
 		activityCategory = factory.makeActivityCategory();
-		return activityCategory.load();
-		
-	}
-
-	public int getUserID() {
-		return Session.user().getId();
-	}
-	
-	public String getUserLogin() {
-		return Session.user().getLogin();
+		return activityCategory.load();		
 	}
 
 	public SubscriptionPaymentList getPaymentsFromMember(int idMember) {

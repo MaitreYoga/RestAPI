@@ -58,7 +58,7 @@ public abstract class Speaker {
     public abstract String save(String login);
     public abstract String load(int speakerId);
     public abstract void update(int speakerId);
-    public abstract int getIdFromSpeaker(String user);
+    public abstract int getIdFromSpeaker(int userId);
 
 	public abstract String load(String speakerID);
 

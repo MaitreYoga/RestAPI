@@ -15,12 +15,12 @@ public class AdministratorManager {
 		factory = Factory.getInstance();
 	}
 
-	public List<String> getAllAdministratorID() {
+	public List<Integer> getAllAdministratorID() {
 		admins = factory.makeAdministratorList();
 		admins.load();
-		List<String> logins = new ArrayList<String>();
+		List<Integer> logins = new ArrayList<Integer>();
 		for(int i = 0 ; i < admins.size() ; i++)
-			logins.add(admins.get(i).getUser());
+			logins.add(new Integer(admins.get(i).getID()));
 		return logins;
 	}
 	

@@ -2,8 +2,6 @@ package dal.product.mysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import dal.MySQLDatabase;
 import dal.product.generic.ProductLine;
@@ -16,10 +14,7 @@ public class MSProductLineList extends ProductLineList {
 	private static final String index = "id";
 	private static final String quantity = "quantity";
 	private static final String fkshoppingcart = "idshoppingcart";
-	private static final String fkorder = "idorder";
 	private static final String fkproduct = "idproduct";
-	
-    private List<MSProductLine> mSProductLine = new ArrayList<MSProductLine> ();
     
 	public void load(int userId) {
 		String request = "SELECT SL."+index+", P.name, SL."+quantity+", P.price, P.memberreduction FROM shoppingcart S, "+table+" SL, product P WHERE S.iduser = "+userId+" and SL."+fkshoppingcart+"=S.id and P.id=SL."+fkproduct+";";
@@ -88,6 +83,6 @@ public class MSProductLineList extends ProductLineList {
 		}
 		
 		String request2 = "UPDATE "+table+" SET quantity='"+quantity+"' WHERE id='"+idCart+"' and fkidproduct='"+product+"'";
-		int result2 = MySQLDatabase.getInstance().updateRequest(request2);
+		MySQLDatabase.getInstance().updateRequest(request2);
 	}
 }

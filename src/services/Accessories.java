@@ -11,10 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
-import com.google.gson.Gson;
-
 import bl.facade.EventFacade;
-import dal.MySQLDatabase;
 import dal.product.generic.Accessory;
 
 @Path("accessories")
@@ -29,7 +26,7 @@ public class Accessories {
      * Default constructor. 
      */
     public Accessories() {
-        // TODO Auto-generated constructor stub
+    	
     }
 
     /**
@@ -45,7 +42,6 @@ public class Accessories {
 	@GET
 	@Path("{id}")
 	public Accessory getAccessory(@PathParam("id") String id) {
-		//TODO method
 		return EventFacade.instance().getAllAccessories().getList().get(0);
 	}
     /**
@@ -55,6 +51,6 @@ public class Accessories {
      */
     @PUT
     public void putJson(String content) {
+    	
     }
-
 }

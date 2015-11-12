@@ -29,13 +29,11 @@ public class MSProductCategory extends ProductCategory {
 
 	@Override
 	public void insert() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void load() {
-		// TODO Auto-generated method stub
 		
 	}
 

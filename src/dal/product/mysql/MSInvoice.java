@@ -2,14 +2,9 @@ package dal.product.mysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
-import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import dal.MySQLDatabase;
 import dal.product.generic.Invoice;
-import dal.product.generic.Order;
-import dal.product.generic.OrderLine;
 
 public class MSInvoice extends Invoice {
 	
@@ -40,7 +35,6 @@ public class MSInvoice extends Invoice {
 				res = result.getInt(1);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

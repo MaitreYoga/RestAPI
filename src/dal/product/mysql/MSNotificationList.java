@@ -33,8 +33,8 @@ public class MSNotificationList extends NotificationList {
 	    		notif.setID(Integer.parseInt(result.getString(index)));
 	    		notif.setRead(result.getString(isread).equals("1"));
 	    		notif.setMessage(result.getString(label));
-	    		notif.setSender(result.getString(fkcreator));
-	    		notif.addReceiver(result.getString(fkreceiver));
+	    		notif.setSender(result.getInt(fkcreator));
+	    		notif.addReceiver(result.getInt(fkreceiver));
 				super.add(notif);
 			}
 		    /* On ferme le ResultSet */

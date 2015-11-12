@@ -2,13 +2,9 @@ package dal.product.mysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
-import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import dal.MySQLDatabase;
 import dal.product.generic.Order;
-import dal.product.generic.OrderLine;
 
 public class MSOrder extends Order {
 	
@@ -20,7 +16,6 @@ public class MSOrder extends Order {
 
 	private static final String index = "id";
 	private static final String isvalidated = "isvalidated";
-	private static final String fkinvoice = "idinvoice";
 	private static final String fkuser = "iduser";
 	
 	@Override

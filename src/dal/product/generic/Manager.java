@@ -2,10 +2,6 @@ package dal.product.generic;
 
 import java.util.List;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
 public abstract class Manager 
 {
 	private int ID;

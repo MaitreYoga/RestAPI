@@ -8,15 +8,15 @@ public abstract class Notification {
 	private int id;
 	private boolean isRead;
 	private String message;
-	private String sender;
-	private List<String> receivers;
+	private int sender;
+	private List<Integer> receivers;
 	
 	public Notification(){
 		id = 0;
 		isRead = false;
 		message = "";
-		sender = "";
-		receivers = new ArrayList<String>();
+		sender = 0;
+		receivers = new ArrayList<Integer>();
 	}
 
 	public void setID(int id) {
@@ -26,31 +26,31 @@ public abstract class Notification {
 	public int getID() {
 		return id;
 	}
-	public void setSender(String userSender) {
-		sender = userSender;
+	public void setSender(int userId) {
+		sender = userId;
 	}
 
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
-	public void setReceivers(List<String> receivers) {
+	public void setReceivers(List<Integer> receivers) {
 		this.receivers = receivers;
 	}
 	
-	public void addReceiver(String receiver){
-		receivers.add(receiver);
+	public void addReceiver(int userId){
+		receivers.add(new Integer(userId));
 	}
 	
 	public void setRead(boolean read){
 		isRead = read;
 	}
 	
-	public String getSender(){
+	public int getSender(){
 		return sender;
 	}
 	
-	public List<String> getReceivers(){
+	public List<Integer> getReceivers(){
 		return receivers;
 	}
 	

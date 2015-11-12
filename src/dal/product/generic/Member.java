@@ -24,7 +24,7 @@ public abstract class Member
         this.number = value;
     }
 
-	public abstract int getMemberId(String login);
+	public abstract int getMemberId(int userId);
 	public abstract String getLogin(int seller);
 	public abstract int getSeller(int userId);
 	public abstract int save(int userId, String date);

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bl.facade.EventFacade;
-import bl.facade.UserFacade;
 import utilitaries.Rest;
 
 /**
@@ -25,7 +24,6 @@ public class activitycategories extends HttpServlet {
      */
     public activitycategories() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -52,14 +50,14 @@ public class activitycategories extends HttpServlet {
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 	}
 
 	/**
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 	}
 
 }

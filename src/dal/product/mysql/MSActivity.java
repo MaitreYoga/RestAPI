@@ -17,17 +17,14 @@ public class MSActivity extends Activity {
 
 	private static final String index = "id";
 	private static final String name = "name";
-	private static final String shortdescription = "shortdescription";
-	private static final String longdescription = "longdescription";
 	private static final String fkcategory = "idactivitycategory";
-	private static final String fkmanager = "idmanager";
 
 	@Override
 	public void save() {
 		try
 		{
 			String request ="INSERT INTO "+table+" ("+name+") VALUES ('"+super.getName()+"')";
-			int result = MySQLDatabase.getInstance().insertRequest(request);
+			MySQLDatabase.getInstance().insertRequest(request);
 		}
 		 catch(Exception e)
         {
@@ -90,7 +87,7 @@ public class MSActivity extends Activity {
 			request = "update "+table+" set idmanager=NULL WHERE id ="+super.getID();
 		else
 			request = "update "+table+" set idmanager="+super.getManager().getID()+" WHERE id ="+super.getID();
-		int result = MySQLDatabase.getInstance().updateRequest(request);
+		MySQLDatabase.getInstance().updateRequest(request);
        
 	}
 	@Override
@@ -104,7 +101,7 @@ public class MSActivity extends Activity {
 		try
 		{
 			String request ="delete from "+table+" where id = "+super.getID();
-			int result = MySQLDatabase.getInstance().deleteRequest(request);
+			MySQLDatabase.getInstance().deleteRequest(request);
 		}
 		 catch(Exception e)
 	    {

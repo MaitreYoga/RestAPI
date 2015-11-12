@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bl.facade.UserFacade;
+import utilitaries.Message;
 import utilitaries.Rest;
 
 /**
@@ -43,7 +44,29 @@ public class Users extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		HashMap<String,String> map = Rest.GetParameters(request);
+		String message = UserFacade.instance().handleSubscribe(
+				map.get("login"),
+				map.get("hashpwd"),
+				map.get("firstname"),
+				map.get("lastname"),
+				map.get("phonenumber"),
+				map.get("mailadress"),
+				map.get("number"),
+				map.get("name"),
+				map.get("postalcode"),
+				map.get("town"),
+				false,
+				null);
+		
+		if(message == null)
+		{
+			Rest.AddObjectAsJSONResponse(new Message("Inscription completed !",null),response);
+		}
+		else
+		{
+			Rest.AddObjectAsJSONResponse(new Message(null,message),response);
+		}
 	}
 
 }

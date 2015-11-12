@@ -86,7 +86,7 @@ public class MSUser extends User
 	}
 
 	@Override
-	public String save() {
+	public String save(String tempPwd) {
 		String request;
 		int id = MySQLDatabase.ErrorCode;
 		
@@ -95,7 +95,8 @@ public class MSUser extends User
 							+"'"+getLastName()+"',"
 							+"'"+getPhone()+"',"
 							+"'"+getMail()+"',"
-							+"'"+getLogin()+"'"
+							+"'"+getLogin()+"',"
+							+"'"+tempPwd+"'"
 							+ ")";
     	
     	MySQLDatabase.getInstance().insertRequest(request);

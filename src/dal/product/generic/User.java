@@ -33,7 +33,7 @@ public abstract class User {
     public abstract String check(String login);
     public abstract User load(String login, String pwd);
     public abstract int loadId(String login);
-    public abstract String save();
+    public abstract String save(String tempPwd);
 	
     public int getId() {
     	return id;

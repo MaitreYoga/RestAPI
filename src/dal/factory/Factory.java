@@ -83,4 +83,6 @@ public abstract class Factory
 	public abstract ProductList makeProductList();
 
 	public abstract RoomList makeRoomList();
+	
+	public abstract Address makeAddress();
 }

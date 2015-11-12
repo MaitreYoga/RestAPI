@@ -7,6 +7,7 @@ import java.util.List;
 
 import dal.factory.Factory;
 import dal.product.generic.ActivityCategory;
+import dal.product.generic.Address;
 import dal.product.generic.Manager;
 import dal.product.generic.Member;
 import dal.product.generic.Speaker;
@@ -31,8 +32,9 @@ public class UserManager {
     public User handleLogin(String login, String pwd) {
     	return factory.makeUser().load(login, pwd);
     }
-	public String handleSubscribe(String login, String pwd, String firstName, String lastName, String phone, String mail, String adressNumber, String adressName, String postalCode, String town) {
+	public String handleSubscribe(String login, String pwd, String firstName, String lastName, String phone, String mail, String number, String name, String postalCode, String town) {
 		user = factory.makeUser();
+		Address a = factory.makeAddress();
 		
 		String resultMessage = user.check(login);
 		if(resultMessage.equals("User registered"))
@@ -43,15 +45,26 @@ public class UserManager {
 			user.setLastName(lastName);
 			user.setPhone(phone);
 			user.setMail(mail);
-			//user.setNumber(adressNumber);
-			//user.setName(adressName);
-			//user.setPostalCode(postalCode);
-			//user.setTown(town);
+			user.save(pwd);
 			
-			return user.save();
+			if(	number != null &&
+				name != null &&
+				postalCode != null &&
+				town != null)
+			{
+				try {
+					a.setNumber(Integer.parseInt(number));
+					a.setPostalCode(Integer.parseInt(postalCode));
+					a.setName(name);
+					a.setTown(town);
+					a.save();
+				}
+				catch (NumberFormatException e) {}
+			}
+			return null;
 		}
 		else
-			return "An error has occured. Please retry";
+			return "An error has occured. Please retry later";
 	}
 
 	public String getLoginFromMember(int seller) {

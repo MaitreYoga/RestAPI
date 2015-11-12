@@ -193,4 +193,8 @@ public class MySQLFactory extends Factory
 		return new MSRoomList();
 	}
 
+	@Override
+	public Address makeAddress() {
+		return new MSAddress();
+	}
 }

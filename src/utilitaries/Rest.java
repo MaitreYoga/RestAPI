@@ -37,6 +37,7 @@ public class Rest {
 			paramName = parameterNames.nextElement().toLowerCase();
 			String[] paramValues = request.getParameterValues(paramName);
 			map.put(paramName,paramValues[0]);
+			//System.out.println(paramName+" -- "+paramValues[0]);
 		}
 		return map;
     }

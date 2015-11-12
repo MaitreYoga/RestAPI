@@ -57,8 +57,8 @@ public class UserFacade {
     	return token;*/
     }
 
-	public String handleSubscribe(String login, String pwd, String firstName, String lastName, String phone, String mail, String adressNumber, String adressName, String postalCode, String town, boolean isSpeaker, String job) {
-		String errorMessage = userManager.handleSubscribe(login, pwd, firstName, lastName, phone, mail, adressNumber, adressName, postalCode, town);
+	public String handleSubscribe(String login, String pwd, String firstName, String lastName, String phone, String mail, String number, String name, String postalCode, String town, boolean isSpeaker, String job) {
+		String errorMessage = userManager.handleSubscribe(login, pwd, firstName, lastName, phone, mail, number, name, postalCode, town);
 		if(errorMessage == null && isSpeaker) {
 			errorMessage = speakerManager.handleSubscribe(login,job);
 		}

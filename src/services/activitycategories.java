@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bl.facade.ShopFacade;
+import bl.facade.EventFacade;
 import bl.facade.UserFacade;
 import utilitaries.Rest;
 
 /**
- * Servlet implementation class products
+ * Servlet implementation class activitycategories
  */
-@WebServlet("/products")
-public class products extends HttpServlet {
+@WebServlet("/activitycategories")
+public class activitycategories extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public products() {
+    public activitycategories() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +32,19 @@ public class products extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HashMap<String,String> map = Rest.GetParameters(request);
-		if(map.get("id")!=null){
-			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProduct(Integer.parseInt(map.get("id"))),response);
-		}
-		else if(map.get("cat")!=null){
-			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProductsByCat(Integer.parseInt(map.get("cat"))),response);
-		}
-		else{
-			Rest.AddObjectAsJSONResponse(ShopFacade.instance().getProducts(),response);
-		}
-		
+		//if(map.get("id")!=null)
+		//	Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(Integer.parseInt(map.get("id")),""),response);
+		//if(map.get("id")!=null)
+			Rest.AddObjectAsJSONResponse(EventFacade.instance().getAllActivityCategories(),response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HashMap<String,String> map = Rest.GetParameters(request);
+		EventFacade.instance().createActivityCategory(map.get("name"));
 		doGet(request, response);
 	}
 
@@ -65,13 +59,6 @@ public class products extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doOptions(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 

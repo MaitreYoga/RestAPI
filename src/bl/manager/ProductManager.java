@@ -9,70 +9,66 @@ import dal.product.generic.ProductList;
 
 public class ProductManager {
     private Factory factory;
-    private Product product;
-    private ProductList productL;
 
     public ProductManager(){
     	factory = Factory.getInstance();
     }
     
     public Product getProduct(int idProduct) {
-    	this.product = factory.makeProduct();
-    	this.product.load(idProduct);
+    	Product product = factory.makeProduct();
+    	product.load(idProduct);
     	
-    	if(this.product.isNull()){
+    	if(product.isNull()){
     		return null;
     	}
     	else{
-    		return this.product;
+    		return product;
     	}
     }
     
 
     public List<Product> getProducts() {
-    	this.productL = factory.makeProductList();
-    	this.productL.load();
-    	return this.productL.getList();
+    	ProductList productL = factory.makeProductList();
+    	productL.load();
+    	return productL.getList();
     }
     
 	public List<Integer> getSellers(List<Integer> idProducts) {
-		this.product = factory.makeProduct();
+		Product product = factory.makeProduct();
 		List<Integer> sellers = new ArrayList<Integer>();
 		for (int i = 0; i<idProducts.size(); i++){
-			this.product.load(idProducts.get(i));
-			sellers.add(this.product.getSeller());
+			product.load(idProducts.get(i));
+			sellers.add(product.getSeller());
 		}
 	
 		return sellers;
 	}
 	
 	public int getSeller(int idProduct) {
-		this.product = factory.makeProduct();
-		this.product.load(idProduct);
-		return this.product.getSeller();
+		Product product = factory.makeProduct();
+		product.load(idProduct);
+		return product.getSeller();
 	}
 	public String save(int id, int productCat,String name, String brand, int price, int memberPrice,
 			int quantity, String url) {
-		this.product = factory.makeProduct();
-		this.product.setName(name);
-		this.product.setBrand(brand);
-		this.product.setPrice(price);
-		this.product.setMemberPrice(memberPrice);
-		this.product.setQuantityAvailable(quantity);
-		this.product.setUrlImage(url);
-		this.product.setSeller(id);
-		this.product.setProductCat(productCat);
-		return this.product.save();
+		Product product = factory.makeProduct();
+		product.setName(name);
+		product.setBrand(brand);
+		product.setPrice(price);
+		product.setMemberPrice(memberPrice);
+		product.setQuantityAvailable(quantity);
+		product.setUrlImage(url);
+		product.setSeller(id);
+		product.setProductCat(productCat);
+		return product.save();
 	}
 	public ProductList getProductsFromMember(int idMember) {
-		productL = factory.makeProductList();
+		ProductList productL = factory.makeProductList();
 		productL.load(idMember);
 		return productL;
 	}
 	public void updateQuantityAvailable(int idProd, int newQuant) {
-		product = factory.makeProduct();
-		product.updateQuantityAvailable(idProd, newQuant);
-		
+		Product product = factory.makeProduct();
+		product.updateQuantityAvailable(idProd, newQuant);	
 	}
-
 }

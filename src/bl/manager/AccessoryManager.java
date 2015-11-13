@@ -9,24 +9,22 @@ import dal.product.generic.AccessoryList;
 public class AccessoryManager {
 	
 	private Factory factory;
-	private AccessoryList accessories;
 	
 	public AccessoryManager(){
 		factory = Factory.getInstance();
 	}
 
 	public AccessoryList getAllAccessories() {
-		accessories = factory.makeAccessoryList();
-		accessories.load();
-		return accessories;
+		AccessoryList al = factory.makeAccessoryList();
+		al.load();
+		return al;
 	}
 
 	public Accessory addAccessory(String description) {
-		Accessory access = factory.makeAccessory();
-		access.setDescription(description);
-		accessories.add(access);
-		access.save();
-		return access;
+		Accessory a = factory.makeAccessory();
+		a.setDescription(description);
+		a.save();
+		return a;
 	}
 
 	public ArrayList<Accessory> getAccessoriesByRoom(int room) {

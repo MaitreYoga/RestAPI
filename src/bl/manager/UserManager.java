@@ -6,9 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import dal.factory.Factory;
-import dal.product.generic.ActivityCategory;
 import dal.product.generic.Address;
-import dal.product.generic.Manager;
 import dal.product.generic.Member;
 import dal.product.generic.Speaker;
 import dal.product.generic.SubscriptionPayment;
@@ -18,12 +16,6 @@ import dal.product.generic.User;
 public class UserManager {
 	
 	private Factory factory;
-	private User user;
-	private Member member;
-	private Manager manager;
-	private SubscriptionPayment subscriptionPayment;
-	private SubscriptionPaymentList subscriptionPaymentL;
-	private ActivityCategory activityCategory;
     
     public UserManager(){
     	factory = Factory.getInstance();
@@ -33,19 +25,19 @@ public class UserManager {
     	return factory.makeUser().load(login, pwd);
     }
 	public String handleSubscribe(String login, String pwd, String firstName, String lastName, String phone, String mail, String number, String name, String postalCode, String town) {
-		user = factory.makeUser();
+		User u = factory.makeUser();
 		Address a = factory.makeAddress();
 		
-		String resultMessage = user.check(login);
+		String resultMessage = u.check(login);
 		if(resultMessage.equals("User registered"))
 			return "Login already exists - Please try another one";
 		if(resultMessage.equals("User not registered")){
-			user.setLogin(login);
-			user.setFirstName(firstName);
-			user.setLastName(lastName);
-			user.setPhone(phone);
-			user.setMail(mail);
-			user.save(pwd);
+			u.setLogin(login);
+			u.setFirstName(firstName);
+			u.setLastName(lastName);
+			u.setPhone(phone);
+			u.setMail(mail);
+			u.save(pwd);
 			
 			if(	number != null &&
 				name != null &&
@@ -68,35 +60,31 @@ public class UserManager {
 	}
 
 	public String getLoginFromMember(int seller) {
-		member = factory.makeMember();
-		return member.getLogin(seller);
+		return factory.makeMember().getLogin(seller);
 	}
 	
 	public int getSellerFromLogin(int userId) {
-		member = factory.makeMember();
-		return member.getSeller(userId);
+		return factory.makeMember().getSeller(userId);
 	}
 	
 	public int getIdFromLogin(String login) {
-		user = factory.makeUser();
-		return user.loadId(login);
+		return factory.makeUser().loadId(login);
 	}
 
 	public List<User> getUsers() 
 	{
-		user = factory.makeUser();
-		return user.load();
+		return factory.makeUser().load();
 	}
 	public User getUser(int id, String login)
 	{
-		user = factory.makeUser();
+		User u = factory.makeUser();
 		if(id > 0)
 		{
-			return user.loadProfileById(id);
+			return u.loadProfileById(id);
 		}
 		else if(login != null && !login.isEmpty())
 		{
-			return user.loadProfileByLogin(login);
+			return u.loadProfileByLogin(login);
 		}
 		else
 			return null;
@@ -104,15 +92,12 @@ public class UserManager {
 
 	public boolean handleManagerAdd(String user)
 	{
-		manager = factory.makeManager();
-		return manager.save(user);
+		return factory.makeManager().save(user);
 	}
 
 	public boolean handleManagerDelete(String userName)
 	{
-		manager = factory.makeManager();
-		return manager.delete(userName);
-		
+		return factory.makeManager().delete(userName);
 	}
 
 	public List<String> getLoginsFromMembers(List<Integer> sellers) {
@@ -146,30 +131,26 @@ public class UserManager {
 	
 	public List<Object> getManagers() 
 	{
-		manager = factory.makeManager();
-		return manager.load();
-		
+		return factory.makeManager().load();	
 	}
 
 	public List<Object> getCategories() 
 	{
-		activityCategory = factory.makeActivityCategory();
-		return activityCategory.load();		
+		return factory.makeActivityCategory().load();		
 	}
 
 	public SubscriptionPaymentList getPaymentsFromMember(int idMember) {
-		subscriptionPaymentL = factory.makeSubscriptionPaymentList();
-		subscriptionPaymentL.load(idMember);
-		return subscriptionPaymentL;
+		SubscriptionPaymentList pl = factory.makeSubscriptionPaymentList();
+		pl.load(idMember);
+		return pl;
 	}
 
 	public SubscriptionPayment getLastSubscriptionPayment(int idMember) {
-		subscriptionPayment = factory.makeSubscriptionPayment(); 
-		return subscriptionPayment.getLastSubscriptionPayment(idMember);
+		return factory.makeSubscriptionPayment().getLastSubscriptionPayment(idMember);
 	}
 
 	public int registerMember(int userId) {
-		member = factory.makeMember();
+		Member m = factory.makeMember();
 		
 		// on recupere la date du jour
 		String registrationDate;
@@ -178,12 +159,11 @@ public class UserManager {
 		Date date = new Date();
 		registrationDate = formater.format( date );
 		
-		return member.save(userId, registrationDate);
-		
+		return m.save(userId, registrationDate);
 	}
 
 	public void createSubscriptionPayment(int idMember, int amountPaid, String paymentType) {
-		subscriptionPayment = factory.makeSubscriptionPayment();
+		SubscriptionPayment sp = factory.makeSubscriptionPayment();
 		
 		// on recupere la date du jour
 		String paymentDate;
@@ -192,8 +172,6 @@ public class UserManager {
 		Date date = new Date();
 		paymentDate = formater.format( date );
 		
-		subscriptionPayment.save(amountPaid, paymentDate, paymentType, idMember);
-		
+		sp.save(amountPaid, paymentDate, paymentType, idMember);	
 	}
-	
 }

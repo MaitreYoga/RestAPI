@@ -7,7 +7,6 @@ import dal.product.generic.ManagerList;
 public class ManagerManager 
 {
 	public Factory factory;
-	public Manager managerManagement;
 
 	public ManagerManager() 
 	{
@@ -17,8 +16,7 @@ public class ManagerManager
 
 	public String updateManagerList()
 	{
-		managerManagement = factory.makeManager();
-		return managerManagement.loadList();
+		return factory.makeManager().loadList();
 	}
 
 	public ManagerList getAllManagers() {

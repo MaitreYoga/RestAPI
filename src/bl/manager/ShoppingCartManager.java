@@ -6,8 +6,6 @@ import dal.product.generic.ShoppingCart;
 import dal.product.generic.ShoppingCartLine;
 
 public class ShoppingCartManager {
-	private ProductLineList prods;
-	private ShoppingCart cart;
     public Factory factory;
 
 	public ShoppingCartManager(){
@@ -15,7 +13,7 @@ public class ShoppingCartManager {
 	}
     
     public ProductLineList getAllProductInCart(int userId) {
-    	prods = factory.makeProductLineList();
+    	ProductLineList prods = factory.makeProductLineList();
     	prods.load(userId);
     	return prods;
     }
@@ -28,7 +26,7 @@ public class ShoppingCartManager {
     }
 
 	public void handleChangeQuantity(int product, int quantity, int userId) {
-		prods.updateProd(product, quantity, userId);
+		factory.makeProductLineList().updateProd(product, quantity, userId);
 	}
 
 	public void addToCart(int idProd, int userId) {
@@ -39,9 +37,6 @@ public class ShoppingCartManager {
 	}
 
 	public void createShoppingCart(int userId) {
-		cart = factory.makeShoppingCart();
-		cart.save(userId);
-		
+		factory.makeShoppingCart().save(userId);
 	}
-
 }

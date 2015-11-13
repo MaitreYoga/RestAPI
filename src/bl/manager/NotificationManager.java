@@ -9,7 +9,6 @@ import dal.product.generic.NotificationList;
 public class NotificationManager {
 	
 	private Factory factory;
-	private NotificationList notifs;
 
 	public NotificationManager(){
 		factory = Factory.getInstance();
@@ -26,7 +25,7 @@ public class NotificationManager {
 	}
 
 	public NotificationList getNotificationsForLogin(int userId) {
-		notifs = factory.makeNotificationList();
+		NotificationList notifs = factory.makeNotificationList();
 		notifs.load(userId);
 		return notifs;
 	}

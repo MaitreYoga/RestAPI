@@ -9,18 +9,17 @@ import dal.product.generic.AdministratorList;
 
 public class AdministratorManager {
 	private Factory factory;
-	private AdministratorList admins;
 
 	public AdministratorManager(){
 		factory = Factory.getInstance();
 	}
 
 	public List<Integer> getAllAdministratorID() {
-		admins = factory.makeAdministratorList();
-		admins.load();
+		AdministratorList al = factory.makeAdministratorList();
+		al.load();
 		List<Integer> logins = new ArrayList<Integer>();
-		for(int i = 0 ; i < admins.size() ; i++)
-			logins.add(new Integer(admins.get(i).getID()));
+		for(int i = 0 ; i < al.size() ; i++)
+			logins.add(new Integer(al.get(i).getID()));
 		return logins;
 	}
 	

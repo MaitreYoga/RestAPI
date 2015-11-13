@@ -16,15 +16,6 @@ import dal.product.generic.Speaker;
 public class EventManager 
 {
     private Factory factory;
-    private EventList eventList;
-    private Period period;
-    private Event event;
-    private Speaker speaker;
-    private Activity activity;
-    private Room room;
-    private RoomList roomList;
-    private Member member;
-    private Inscription inscription;
     
     public EventManager()
     {
@@ -38,7 +29,7 @@ public class EventManager
 
     public Event getEvent(String chosenEvent) 
     {
-    	event = factory.makeEvent();
+    	Event event = factory.makeEvent();
     	event.load(chosenEvent);
     	
     	return event;
@@ -46,58 +37,57 @@ public class EventManager
 
     public void handleEventInscription(int userID, String chosenEvent) 
     {
-    	inscription = factory.makeInscription();
+    	Inscription inscription = factory.makeInscription();
     	inscription.save(userID,chosenEvent);
     }
 
     public List<Event> getAllEvents() 
     {
-    	eventList = factory.makeEventList();
+    	EventList eventList = factory.makeEventList();
     	eventList.load();
-    	System.out.println(eventList.getList());
     	return eventList.getList();
     }
 
 	public boolean finaliseInscription(int memberID, int chosenEvent,int amount) 
 	{
-		inscription = factory.makeInscription();
+		Inscription inscription = factory.makeInscription();
 		return inscription.save(memberID, chosenEvent,amount);
 	}
 
 	public String getSpeaker(String speakerID) 
 	{
-		speaker = factory.makeSpeaker();
+		Speaker speaker = factory.makeSpeaker();
 		return speaker.load(speakerID);
 	}
 
 	public String getPeriod(String periodID) 
 	{
-		period = factory.makePeriod();
+		Period period = factory.makePeriod();
 		return period.load(periodID);
 	}
 
 	public String getActivity(String activityID) 
 	{
-		activity = factory.makeActivity();
+		Activity activity = factory.makeActivity();
 		return activity.load(activityID);
 	}
 
 	public String getPlace(String placeID) 
 	{
-		room = factory.makeRoom();
+		Room room = factory.makeRoom();
 		return room.load(placeID);
 	}
 
 	public int getMember(int userId) 
 	{
-		member = factory.makeMember();
+		Member member = factory.makeMember();
 		return member.getMemberId(userId);
 	}
 
 	public int getEventID(String event) 
 	{
-		this.event = factory.makeEvent();
-		return this.event.getID(event);
+		Event e = factory.makeEvent();
+		return e.getID(event);
 	}
 
 	public EventList getUserEvents(int userID) {
@@ -108,68 +98,65 @@ public class EventManager
 
 	public List<Room> getRooms() 
 	{
-		room = factory.makeRoom();
+		Room room = factory.makeRoom();
 		return room.load();
 	}
 
 	public boolean deleteRoom(String roomName) 
 	{
-		room = factory.makeRoom();
+		Room room = factory.makeRoom();
 		return room.deleteRoom(roomName);
 	}
 
 	public boolean createRoom(String roomName, int surface) 
 	{
-		room = factory.makeRoom();
+		Room room = factory.makeRoom();
 		return room.createRoom(roomName,surface);
 	}
 
 	public String updateRoomList() 
 	{
-		room = factory.makeRoom();
+		Room room = factory.makeRoom();
 		return room.loadList();
 		
 	}
 
 	public List<Object> getAllEvents(String searchCriteria) 
 	{
-		eventList = factory.makeEventList();
+		EventList eventList = factory.makeEventList();
 		return eventList.loadList(searchCriteria);
 	}
 
 	public String getEvents(String searchCriteria, String choice) 
 	{
-		eventList = factory.makeEventList();
+		EventList eventList = factory.makeEventList();
 		return eventList.loadEvents(searchCriteria,choice);
 	}
 
 	public int deleteAccessoryFromRoom(int idRoom, int idAccessory) {
-		eventList = factory.makeEventList();
-		room = factory.makeRoom();
+		Room room = factory.makeRoom();
 		return room.deleteAccessoryFromRoom(idRoom,idAccessory);
 	}
 
 	public int addAccessoryToRoom(int idAccessory, int idRoom) {
-		eventList = factory.makeEventList();
-		room = factory.makeRoom();
+		Room room = factory.makeRoom();
 		return room.addAccessoryToRoom(idAccessory,idRoom);
 	}
 
 	public List<Object> getPeriods(String chosenEvent) 
 	{
-		period = factory.makePeriod();
-		return period.loadPeriod(chosenEvent);
+		return factory.makePeriod().loadPeriod(chosenEvent);
 		
 	}
 
 	public RoomList getAllRooms() {
-		roomList = factory.makeRoomList();
+		RoomList roomList = factory.makeRoomList();
 		roomList.load();
 		return roomList;
 	}
 
 	public String createEvent(String name, String price, String startDate,String endDate, String activityID, String roomID, String speakerID) {
-		event = factory.makeEvent();
+		Event event = factory.makeEvent();
 		event.setName(name);
 		event.setPrice(Integer.parseInt(price));
 		event.setStartDate(startDate);

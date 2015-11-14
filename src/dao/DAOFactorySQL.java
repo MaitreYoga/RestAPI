@@ -1,5 +1,7 @@
 package dao;
 
+import dao.interfaceDAO.AccessoryDAO;
+import dao.interfaceDAO.ActivityDAO;
 import dao.sql.AccessoryDAOSQL;
 import dao.sql.ActivityDAOSQL;
 import model.Accessory;

@@ -13,58 +13,57 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import dao.interfaceDAO.AccessoryDAO;
-import model.Accessory;
+import dao.interfaceDAO.UserDAO;
+import model.User;
 
-@Path("accessories")
+@Path("users")
 @Produces("application/json")
 @Consumes("application/json")
-public class AccesoryService {
+public class UserService {
 
-	@EJB  
-	AccessoryDAO accessorydao;
+	@EJB
+	UserDAO userdao;
 	
-	public AccesoryService(){
+	public UserService(){
 		
 	}
 	
-	public AccessoryDAO getDao() {
-		return accessorydao;
+	public UserDAO getDao() {
+		return userdao;
 	}
 
-	public void setDao(AccessoryDAO accessorydao) {
-		this.accessorydao = accessorydao;
+	public void setDao(UserDAO userdao) {
+		this.userdao = userdao;
 	}
 	
 	@POST
-	@Consumes("application/json")
-	public void create(Accessory accessory) {
-		accessorydao.create(accessory);
+	public void create(User user) {
+		userdao.create(user);
 	}
 
 	@GET
 	@Path("/{id:[0-9][0-9]*}")
 	public Response findById(@PathParam("id") int id) {
-		Accessory accessory = accessorydao.findById(id);
-		if (accessory == null) {
+		User user = userdao.findById(id);
+		if (user == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
-		return Response.ok(accessory).build();
+		return Response.ok(user).build();
 	}
 
 	@GET
-	public List<Accessory> listAll() {
+	public List<User> listAll() {
 		//@QueryParam("start") final Integer startPosition,
 		//@QueryParam("max") final Integer maxResult
-		List<Accessory> accessories = accessorydao.findAll();
-		return accessories;
+		List<User> users = userdao.findAll();
+		return users;
 	}
 
 	@PUT
-	public Response update(Accessory accessory){ 
+	public Response update(User user){ 
 		Response r = null;
 		try{
-			accessorydao.update(accessory);
+			userdao.update(user);
 			r = Response.ok("OK").build();
 		}
 		catch(Exception e){
@@ -79,7 +78,7 @@ public class AccesoryService {
 	public Response deleteById(@PathParam("id") int id) {
 		Response r = null;
 		try{
-			accessorydao.delete(id);
+			userdao.delete(id);
 			r = Response.ok("OK").build();
 		}
 		catch(Exception e){

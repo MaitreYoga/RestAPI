@@ -38,4 +38,4 @@ Etapes complémentaires pour lancer le serveur :
 6 - Une fois le webServer installé, avec votre navigateur, allez sur localhost:4848. (pb avec IE)
     Créez une nouvelle "connection pool". (amazonePool, Datasource, mysql puis next). Activez le ping, remplissez les champs user, DataBaseName, password, URL(en majuscule) après les deux / mettre le nom d'hôte de la base, rajoutez le nom de la base à la fin du champs (après le dernier /). Cliquez sur finish.
 
-7 - Créez une nouvelle ressource JDBC, name amazone, poolName amazonePool. Cliquez sur ok'
+7 - Créez une nouvelle ressource JDBC, name jdbc/amazone, poolName amazonePool. Cliquez sur ok'

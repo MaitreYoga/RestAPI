@@ -46,7 +46,7 @@ public class UserService {
 	public Response findById(@PathParam("id") int id) {
 		User user = userdao.findById(id);
 		if (user == null) {
-			return Response.status(Status.NOT_FOUND).build();
+			return Response.status(Status.NOT_FOUND).entity("Entity not found for ID: " + id).build();
 		}
 		return Response.ok(user).build();
 	}

@@ -34,9 +34,6 @@
 		<class>model.Subscriptionpayment</class>
 		<class>model.Trainingroom</class>
 		<class>model.User</class>
-		<properties>
-			<property name="eclipselink.ddl-generation" value="create-tables"/>
-		</properties>
 	</persistence-unit>
 
 </persistence>

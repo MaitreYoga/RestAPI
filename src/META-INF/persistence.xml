@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="ZenLounge">
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="ZenLounge" transaction-type="JTA">
+		<jta-data-source>jdbc/amazone</jta-data-source>
+		<class>model.Accessory</class>
+		<class>model.Accessoryavailability</class>
+		<class>model.Activity</class>
+		<class>model.Activitycategory</class>
+		<class>model.Administrator</class>
+		<class>model.Adress</class>
+		<class>model.Brand</class>
+		<class>model.Category</class>
+		<class>model.Event</class>
+		<class>model.Inscription</class>
+		<class>model.Invoice</class>
+		<class>model.Manager</class>
+		<class>model.Member</class>
+		<class>model.Notification</class>
+		<class>model.Office</class>
+		<class>model.Order</class>
+		<class>model.Paymenttype</class>
+		<class>model.Period</class>
+		<class>model.Product</class>
+		<class>model.Productline</class>
+		<class>model.Recurringevent</class>
+		<class>model.Room</class>
+		<class>model.Shoppingcart</class>
+		<class>model.Speaker</class>
+		<class>model.State</class>
+		<class>model.Subscription</class>
+		<class>model.Subscriptionpayment</class>
+		<class>model.Trainingroom</class>
+		<class>model.User</class>
+		<properties>
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+		</properties>
 	</persistence-unit>
+
 </persistence>

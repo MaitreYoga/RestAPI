@@ -18,16 +18,7 @@ public abstract class User {
 	private String connectiontoken;
 	
     public User(){
-    	this.firstName="";
-    	this.lastName="";
-    	this.phone="";
-    	this.mail="";
-    	this.number = 0;
-    	this.name = "";
-    	this.postalCode = 0;
-    	this.town = "";
-    	this.login="";
-    	this.connectiontoken="";
+
     }
     
     public abstract String check(String login);

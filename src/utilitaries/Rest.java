@@ -48,14 +48,15 @@ public class Rest {
     public static boolean verifyToken(HttpServletRequest request) {
 		String token=request.getHeader("token");
 		String login = request.getHeader("login");
+    	User u = UserFacade.instance().getUser(0, login);
+
 		System.out.println(token);
-		System.out.println(login);
-    	User u = UserFacade.instance().getUser(7, login);
-    	System.out.println(u.getConnectionToken());
-    	System.out.println(u.getFirstName());
-    	if (true/*u.getConnectionToken() == token*/) {
+		System.out.println(u.getConnectionToken());
+    	if (token!= null && u.getConnectionToken().equals(token)) {
+    		System.out.println("ok");
     		return true;
     	} else {
+    		System.out.println("ko");
     		return false;
     	}
     }

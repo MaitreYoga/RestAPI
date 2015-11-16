@@ -29,7 +29,7 @@ public class MSUser extends User
 	private static final String password = "password";
 	
 	private static final String table2 = "adress";
-
+	private static final String connectiontoken = "connectiontoken";
 	private static final String index2 = "id";
 	private static final String number = "number";
 	private static final String name = "name";
@@ -254,7 +254,7 @@ public class MSUser extends User
 				user.setLogin(result.getString(login));
 				user.setMail(result.getString(mailadress));
 				user.setPhone(result.getString(phonenumber));
-				//user.setConnectionToken(result.getString("connectiontoken"));
+				user.setConnectionToken(result.getString("connectiontoken"));
 				//user.setIdAdress(result.getInt("number"));
 				//user.setName(result.getString("name"));
 				//user.setPostalCode(result.getString("postalcode"));

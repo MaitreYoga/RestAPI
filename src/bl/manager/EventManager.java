@@ -27,10 +27,10 @@ public class EventManager
     	
     }
 
-    public Event getEvent(String chosenEvent) 
+    public Event getEvent(int eventId) 
     {
     	Event event = factory.makeEvent();
-    	event.load(chosenEvent);
+    	event.load(eventId);
     	
     	return event;
     }
@@ -82,12 +82,6 @@ public class EventManager
 	{
 		Member member = factory.makeMember();
 		return member.getMemberId(userId);
-	}
-
-	public int getEventID(String event) 
-	{
-		Event e = factory.makeEvent();
-		return e.getID(event);
 	}
 
 	public EventList getUserEvents(int userID) {

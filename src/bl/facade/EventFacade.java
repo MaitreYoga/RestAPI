@@ -126,16 +126,12 @@ public class EventFacade
 		return eventManager.getPeriods(chosenEvent);
 	}
 
-	public Event getEvent(String chosenEvent) {
-		return eventManager.getEvent(chosenEvent);
+	public Event getEvent(int eventId) {
+		return eventManager.getEvent(eventId);
 	}
 
 	public boolean finaliseInscription(int memberID, int eventID,int amount) {
 		return eventManager.finaliseInscription(memberID, eventID, amount);
-	}
-
-	public int getEventID(String event) {
-		return eventManager.getEventID(event);
 	}
 
 	public int getMember(int userID) {

@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import bl.facade.UserFacade;
-import dal.product.generic.User;
-
 public class Rest {
     public static void AddObjectAsJSONResponse(Object o, HttpServletResponse response)
     {
@@ -44,20 +41,16 @@ public class Rest {
 		}
 		return map;
     }
-    
-    public static boolean verifyToken(HttpServletRequest request) {
-		String token=request.getHeader("token");
-		String login = request.getHeader("login");
-    	User u = UserFacade.instance().getUser(0, login);
-
-		System.out.println(token);
-		System.out.println(u.getConnectionToken());
-    	if (token!= null && u.getConnectionToken().equals(token)) {
-    		System.out.println("ok");
-    		return true;
-    	} else {
-    		System.out.println("ko");
-    		return false;
-    	}
+    public static HashMap<String,String> GetHeaders(HttpServletRequest request)
+    {
+    	HashMap<String,String> map = new HashMap<String,String>(); 
+    	Enumeration<String> headerNames = request.getHeaderNames();
+    	String headerName, headerValue;
+		while (headerNames.hasMoreElements()) {
+			headerName = headerNames.nextElement().toLowerCase();
+			headerValue = request.getHeader(headerName);
+			map.put(headerName,headerValue);
+		}
+		return map;
     }
 }

@@ -13,8 +13,9 @@ public class MSEvent extends Event
 		super();
 	}
 	
-	public MSEvent(String name, int price, String activity, String startperiod, String endperiod , String room,  String speaker){
+	public MSEvent(int id, String name, int price, String activity, String startperiod, String endperiod , String room,  String speaker){
 		super();
+		setId(id);
 		setName(name);
 	    setPrice(price);
 	    setActivity(activity);
@@ -65,24 +66,22 @@ public class MSEvent extends Event
 	}
 
 	@Override
-	public MSEvent load(String chosenEvent) 
-	{
-		//get the event ID of the selected event
-		int idEvent = getIdEvent(chosenEvent);
-				
-		String request = "SELECT * FROM event WHERE id ="+idEvent+"";
+	public Event load(int eventId) 
+	{				
+		String request = "SELECT * FROM event WHERE id ="+eventId+"";
         ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
                 
         try 
         {
 			while(result.next())
 			{
-			       setName(result.getString(name));
-			       setPrice(Integer.parseInt(result.getString(price)));
-			       setActivity(result.getString(fkactivity));
-			       setPeriod(result.getString(fkperiod));
-			       setPlace(result.getString(fkroom));
-			       setSpeaker(result.getString(fkspeaker));      
+				setId(eventId);
+			   setName(result.getString(name));
+			   setPrice(Integer.parseInt(result.getString(price)));
+			   setActivity(result.getString(fkactivity));
+			   setPeriod(result.getString(fkperiod));
+			   setPlace(result.getString(fkroom));
+			   setSpeaker(result.getString(fkspeaker));      
 			}
 		} 
         catch (SQLException e) 
@@ -91,25 +90,5 @@ public class MSEvent extends Event
 		}
         
         return this;	
-	}
-
-	public int getIdEvent(String chosenEvent) 
-	{
-		int idEvent = 0;
-        try
-        {
-        	String request = "SELECT id FROM "+table+" WHERE name ='"+chosenEvent+"'";
-            ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
-            while(result.next())
-            {
-               idEvent = result.getInt("id");
-            }
-        }
-        catch(SQLException e1)
-        {
-            e1.printStackTrace();
-        }
-        
-        return idEvent;
 	}
 }

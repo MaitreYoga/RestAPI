@@ -174,4 +174,10 @@ public class UserManager {
 		
 		sp.save(amountPaid, paymentDate, paymentType, idMember);	
 	}
+	
+	   public boolean verifyToken(String login, String token) {
+		   if(login == null || token == null)
+			   return false;
+	    	return factory.makeUser().check(login,token);
+	    }
 }

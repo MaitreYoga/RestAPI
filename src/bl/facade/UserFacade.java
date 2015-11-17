@@ -165,4 +165,8 @@ public class UserFacade {
 		
 	}
 
+	public boolean verifyToken(String login, String token) {
+		return userManager.verifyToken(login, token);
+	}
+
 }

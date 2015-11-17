@@ -136,4 +136,6 @@ public abstract class User {
 	public abstract User loadProfileById(int id);
 
 	public abstract User loadProfileByLogin(String login);
+
+	public abstract boolean check(String login, String token);
 }

@@ -29,7 +29,6 @@ public class MSUser extends User
 	private static final String password = "password";
 	
 	private static final String table2 = "adress";
-	private static final String connectiontoken = "connectiontoken";
 	private static final String index2 = "id";
 	private static final String number = "number";
 	private static final String name = "name";
@@ -269,6 +268,22 @@ public class MSUser extends User
 			e.printStackTrace();
 			return null;
 		} 
+	}
+
+	@Override
+	public boolean check(String login, String token) {
+		String request = "select id from user where login='"+login+"' and connectiontoken = '"+token+"';";
+		ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
+		if(result == null)
+			return false;
+		try
+		{
+			return(result.next());
+		} 
+		catch (SQLException e)
+		{
+			return false;
+		}
 	}
 		
 }

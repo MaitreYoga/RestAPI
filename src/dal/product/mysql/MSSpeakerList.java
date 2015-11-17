@@ -32,6 +32,7 @@ public class MSSpeakerList extends SpeakerList {
 	    	result.beforeFirst();
 	    	while ( result.next() ) {
 	    		speaker = new MSSpeaker();
+	    		speaker.setId(result.getInt("id"));
 	    		speaker.setJob(result.getString(job));
 	    		speaker.setShortDescription(result.getString(shortdescription));
 	    		speaker.setLongDescription(result.getString(detaileddescription));

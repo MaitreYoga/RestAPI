@@ -15,13 +15,13 @@ import utilitaries.Rest;
  * Servlet implementation class events
  */
 @WebServlet("/events")
-public class events extends HttpServlet {
+public class Events extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public events() {
+    public Events() {
         super();
         // TODO Auto-generated constructor stub
     }

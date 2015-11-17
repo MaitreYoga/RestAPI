@@ -97,16 +97,6 @@ public abstract class Event
 	{
 		this.activity = value;
 	}
-
-	public String getPlace() 
-	{
-		return place;
-	}
-
-	public void setPlace(String value) 
-	{
-		this.place = value;
-	}
 	
 	public String getPeriod() 
 	{

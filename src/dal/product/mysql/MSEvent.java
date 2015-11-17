@@ -21,7 +21,7 @@ public class MSEvent extends Event
 	    setActivity(activity);
 	    setStartDate(startperiod);
 	    setEndDate(endperiod);
-	    setPlace(room);
+	    setRoom(room);
 	    setSpeaker(speaker);    
 	}
 	
@@ -80,7 +80,7 @@ public class MSEvent extends Event
 			   setPrice(Integer.parseInt(result.getString(price)));
 			   setActivity(result.getString(fkactivity));
 			   setPeriod(result.getString(fkperiod));
-			   setPlace(result.getString(fkroom));
+			   setRoom(result.getString(fkroom));
 			   setSpeaker(result.getString(fkspeaker));      
 			}
 		} 

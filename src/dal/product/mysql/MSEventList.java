@@ -41,7 +41,7 @@ public class MSEventList extends EventList
 						result.getString(fkactivity),
 						result.getString("startdate"),
 						result.getString("enddate"),
-						result.getString(fkroom), 
+						result.getString(fkroom),
 						result.getString(fkspeaker));
 				this.add(event);    
 			}

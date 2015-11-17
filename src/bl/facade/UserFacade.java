@@ -1,5 +1,6 @@
 package bl.facade;
 
+import java.util.HashMap;
 import java.util.List;
 
 import bl.manager.AdministratorManager;

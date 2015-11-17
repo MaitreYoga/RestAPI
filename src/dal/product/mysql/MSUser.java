@@ -254,10 +254,10 @@ public class MSUser extends User
 				user.setMail(result.getString(mailadress));
 				user.setPhone(result.getString(phonenumber));
 				user.setConnectionToken(result.getString("connectiontoken"));
-				//user.setIdAdress(result.getInt("number"));
-				//user.setName(result.getString("name"));
-				//user.setPostalCode(result.getString("postalcode"));
-				//user.setTown(result.getString("town"));
+				user.setIdMember(result.getInt("idmember"));
+				user.setIdManager(result.getInt("idmanager"));
+				user.setIdSpeaker(result.getInt("idspeaker"));
+				user.setIdAdministrator(result.getInt("idadministrator"));
 				return user;
 			}
 			else

@@ -1,5 +1,6 @@
 package dal.product.generic;
 
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class User {
@@ -16,6 +17,7 @@ public abstract class User {
 	private String town;
 	private String login;
 	private String connectiontoken;
+	private int idMember, idManager, idSpeaker, idAdministrator;
 	
     public User(){
 
@@ -32,6 +34,35 @@ public abstract class User {
     
     public void setId(int id) {
     	this.id = id;
+    }
+    
+    public int getIdMember() {
+    	return idMember;
+    }
+    
+    public void setIdMember(int idMember) {
+    	this.idMember = idMember;
+    }
+    public int getIdManager() {
+    	return idManager;
+    }
+    
+    public void setIdManager(int idManager) {
+    	this.idManager = idManager;
+    }
+    public int getIdSpeaker() {
+    	return idSpeaker;
+    }
+    
+    public void setIdSpeaker(int idSpeaker) {
+    	this.idSpeaker = idSpeaker;
+    }
+    public int getIdAdministrator() {
+    	return idAdministrator;
+    }
+    
+    public void setIdAdministrator(int idAdministrator) {
+    	this.idAdministrator = idAdministrator;
     }
     
 	public String getFirstName() {
@@ -136,4 +167,6 @@ public abstract class User {
 	public abstract User loadProfileById(int id);
 
 	public abstract User loadProfileByLogin(String login);
+
+	public abstract boolean check(String login, String token);
 }

@@ -31,16 +31,17 @@ public class Users extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (Rest.verifyToken(request)) {
-			HashMap<String,String> map = Rest.GetParameters(request);
-			if(map.get("id")!=null)
-				Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(Integer.parseInt(map.get("id")),""),response);
-			else if(map.get("login")!=null)
-				Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(0,map.get("login")),response);
+		HashMap<String,String> headers = Rest.GetHeaders(request);
+		
+		if (UserFacade.instance().verifyToken(headers.get("login"),headers.get("token"))) {
+			HashMap<String,String> parameters = Rest.GetParameters(request);
+			if(parameters.get("id")!=null)
+				Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(Integer.parseInt(parameters.get("id")),""),response);
+			else if(parameters.get("login")!=null)
+				Rest.AddObjectAsJSONResponse(UserFacade.instance().getUser(0,parameters.get("login")),response);
 			else
 				Rest.AddObjectAsJSONResponse(UserFacade.instance().getUsers(),response);
 		}
-
 	}
 
 	/**

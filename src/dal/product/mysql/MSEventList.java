@@ -34,8 +34,14 @@ public class MSEventList extends EventList
 		{
 			while(result.next())
 			{
-				Event event = new MSEvent(result.getString(name), result.getInt(price),
-						result.getString(fkactivity), result.getString("startdate"), result.getString("enddate"), result.getString(fkroom), 
+				Event event = new MSEvent(
+						result.getInt("id"),
+						result.getString(name),
+						result.getInt(price),
+						result.getString(fkactivity),
+						result.getString("startdate"),
+						result.getString("enddate"),
+						result.getString(fkroom),
 						result.getString(fkspeaker));
 				this.add(event);    
 			}
@@ -49,7 +55,7 @@ public class MSEventList extends EventList
 
 	@Override
 	public void load(int userID) {
-		String request = "SELECT e.name as nameevent , e.price , r.name as nameroom , i.idstate , p.startdate , p.enddate , a.name as nameactivity , IFNULL(e.idspeaker,'No Speaker') as speaker "
+		String request = "SELECT e.id as eventid, e.name as nameevent , e.price , r.name as nameroom , i.idstate , p.startdate , p.enddate , a.name as nameactivity , IFNULL(e.idspeaker,'No Speaker') as speaker "
 				+"FROM event e , inscription i , room r , activity a , member m , period p "
 				+"WHERE i.idevent = e.id AND "
 				+"i.idmember = m.id AND "
@@ -63,6 +69,7 @@ public class MSEventList extends EventList
 			while(result.next())
 			{
 				e = new MSEvent();
+				e.setId(result.getInt("eventid"));
 				e.setName(result.getString("nameevent"));
 				e.setPrice(Integer.parseInt(result.getString("price")));
 				e.setRoom(result.getString("nameroom"));
@@ -102,7 +109,7 @@ public class MSEventList extends EventList
 			{
 				 events.add(result.getString(searchCriteria)); 
 			}
-		} 
+		}
 		catch (SQLException e) 
 		{
 			e.printStackTrace();

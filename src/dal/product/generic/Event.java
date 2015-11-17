@@ -1,10 +1,8 @@
 package dal.product.generic;
 
-import dal.product.mysql.MSEvent;
-
-
 public abstract class Event
 {
+	private int id;
     private String name;
     private int price;
     private String place ;
@@ -16,23 +14,23 @@ public abstract class Event
     private String room;
     private String state;
     
-    public Event(){
-         name = "";
-         price = 0;
-         place = "";
-         period = "";
-         startDate = "";
-         endDate = "";
-         activity = "";
-         speaker = "";
-         room = "";
-         state = "";
+    public Event()
+    {
+
     }
     
 	public abstract String save();
-	public abstract MSEvent load(String chosenEvent);
-    public abstract int getIdEvent(String chosenEvent);
+	public abstract Event load(int eventId);
     
+    public int getId()
+    {
+    	return id;
+    }
+    
+    public void setId(int id){
+    	this.id = id;
+    }
+     
 	public String getName() 
 	{
 		return name;
@@ -99,16 +97,6 @@ public abstract class Event
 	{
 		this.activity = value;
 	}
-
-	public String getPlace() 
-	{
-		return place;
-	}
-
-	public void setPlace(String value) 
-	{
-		this.place = value;
-	}
 	
 	public String getPeriod() 
 	{
@@ -128,10 +116,6 @@ public abstract class Event
 	public void setSpeaker(String value) 
 	{
 		this.speaker = value;
-	}
-
-	public int getID(String event) {
-		return getIdEvent(event);
 	}
 
 }

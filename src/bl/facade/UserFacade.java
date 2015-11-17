@@ -1,5 +1,6 @@
 package bl.facade;
 
+import java.util.HashMap;
 import java.util.List;
 
 import bl.manager.AdministratorManager;
@@ -163,6 +164,10 @@ public class UserFacade {
 	public void createSubscriptionPayment(int idMember, int amountPaid, String paymentType) {
 		userManager.createSubscriptionPayment(idMember, amountPaid, paymentType);
 		
+	}
+
+	public boolean verifyToken(String login, String token) {
+		return userManager.verifyToken(login, token);
 	}
 
 }

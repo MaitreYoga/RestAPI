@@ -21,7 +21,7 @@ public class MSSpeakerList extends SpeakerList {
 
 	@Override
 	public void load() {
-		String request = "SELECT "+job+","+shortdescription+","+detaileddescription+" FROM "+table+" where (idspeaker is not null or idspeaker > 0);";
+		String request = "SELECT "+job+","+shortdescription+","+detaileddescription+" FROM "+table+" where (id is not null and id > 0);";
     	
     	ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
     	

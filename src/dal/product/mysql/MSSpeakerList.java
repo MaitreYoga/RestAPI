@@ -21,7 +21,7 @@ public class MSSpeakerList extends SpeakerList {
 
 	@Override
 	public void load() {
-		String request = "SELECT "+job+","+shortdescription+","+detaileddescription+" FROM "+table+" where (id is not null and id > 0);";
+		String request = "SELECT s.id, u.firstname, u.lastname, s."+job+", s."+shortdescription+", s."+detaileddescription+" FROM user u, "+table+" s where (s.id is not null and s.id > 0) and u.idspeaker = s.id;";
     	
     	ResultSet result = MySQLDatabase.getInstance().selectRequest(request);
     	
@@ -36,7 +36,7 @@ public class MSSpeakerList extends SpeakerList {
 	    		speaker.setJob(result.getString(job));
 	    		speaker.setShortDescription(result.getString(shortdescription));
 	    		speaker.setLongDescription(result.getString(detaileddescription));
-	    		speaker.setName("");
+	    		speaker.setName(result.getString("firstname") + " " +  result.getString("lastname"));
 	    		super.add(speaker);
 			}
 		    /* On ferme le ResultSet */
